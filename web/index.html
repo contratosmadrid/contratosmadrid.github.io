@@ -15,29 +15,33 @@ button,input,select{font:inherit;color:inherit}.hide{display:none!important}:foc
 .top-btn{border:1px solid rgba(255,255,255,.45);background:transparent;color:#fff;border-radius:8px;padding:8px 14px;font-weight:600;cursor:pointer;white-space:nowrap}.top-btn:hover{background:rgba(255,255,255,.1)}
 .wrap{max-width:2400px;margin:auto;padding:16px clamp(12px,1.6vw,26px) 26px}
 /* KPIs */
-.kpis{display:grid;grid-template-columns:repeat(5,minmax(0,1fr)) minmax(260px,1.3fr);gap:12px;margin-bottom:14px}
-.kpi{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:13px 16px;display:flex;align-items:center;gap:14px;min-width:0;box-shadow:var(--sh)}
-.kpi .ic{width:42px;height:42px;border-radius:10px;background:#eef3fa;display:grid;place-items:center;flex-shrink:0}
-.kpi svg{width:24px;height:24px;fill:none;stroke:var(--navy2);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
-.kpi b{display:block;font-size:26px;font-weight:650;line-height:1.05;font-variant-numeric:tabular-nums}
-.kpi span{display:block;font-size:13px}.kpi em{display:block;font-style:normal;font-size:11.5px;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.band{display:grid;grid-template-columns:136px minmax(0,1fr);align-items:stretch;background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh);margin-bottom:10px;overflow:hidden}
+.band-t{padding:10px 14px;border-right:1px solid var(--line);background:#f7f9fc;display:flex;flex-direction:column;justify-content:center;gap:2px}
+.band-t b{font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--navy2);font-weight:700}.band-t span{font-size:11px;color:var(--mute);line-height:1.3}
+.kpis{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0;margin:0}
+.kpi{background:transparent;border:0;border-right:1px solid var(--line2);border-radius:0;padding:9px 14px;display:flex;align-items:center;gap:11px;min-width:0;box-shadow:none}.kpi:last-child{border-right:0}
+.kpi .ic{width:34px;height:34px;border-radius:9px;background:#eef3fa;display:grid;place-items:center;flex-shrink:0}
+.kpi svg{width:20px;height:20px;fill:none;stroke:var(--navy2);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.kpi b{display:block;font-size:22px;font-weight:650;line-height:1.05;font-variant-numeric:tabular-nums}
+.kpi span{display:block;font-size:12.5px;line-height:1.2}.kpi em{display:block;font-style:normal;font-size:11px;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .kpi.info{background:#e9eff7;border-color:#d6e0ee;font-size:12.5px;color:#33475f}
 .kpi.info i{width:32px;height:32px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-style:normal;font-weight:700;flex-shrink:0;font-family:Georgia,serif}
 /* Vencimientos */
-.plazos{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh);padding:12px 14px;margin-bottom:14px}
-.pz-head h2{margin:0;font-size:15px;font-weight:650}.pz-head p{margin:2px 0 10px;font-size:12px;color:var(--sub)}
-.pz-btns{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
-.pz-sinline{display:block;margin-top:9px;border:0;background:none;padding:0;font-size:12px;color:var(--sub);cursor:pointer;text-align:left}.pz-sinline:hover{color:var(--blue);text-decoration:underline}.pz-sinline.on{color:var(--navy);font-weight:700}.pz-sinline:disabled{cursor:default;text-decoration:none;color:var(--mute)}
-.pz{position:relative;display:flex;align-items:center;gap:12px;text-align:left;border:1px solid var(--line);border-radius:10px;background:#fff;padding:10px 12px 14px;cursor:pointer;overflow:hidden;transition:box-shadow .15s,border-color .15s}
+.plazos{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh);margin-bottom:10px;display:grid;grid-template-columns:136px minmax(0,1fr);overflow:hidden}
+.plazos .band-t b{color:#9a5b00}
+.pz-main{padding:8px 10px;min-width:0}
+.pz-btns{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.pz-sinline{display:block;margin-top:5px;border:0;background:none;padding:0;font-size:12px;color:var(--sub);cursor:pointer;text-align:left}.pz-sinline:hover{color:var(--blue);text-decoration:underline}.pz-sinline.on{color:var(--navy);font-weight:700}.pz-sinline:disabled{cursor:default;text-decoration:none;color:var(--mute)}
+.pz{position:relative;display:flex;align-items:center;gap:10px;text-align:left;border:1px solid var(--line);border-radius:9px;background:#fff;padding:7px 11px 11px;cursor:pointer;overflow:hidden;transition:box-shadow .15s,border-color .15s}
 .pz:hover:not(:disabled){box-shadow:0 4px 12px rgba(13,42,82,.1)}.pz:disabled{opacity:.5;cursor:default}
-.pz b{font-size:26px;font-weight:700;line-height:1;min-width:34px;font-variant-numeric:tabular-nums}
-.pz strong{display:block;font-size:13px;font-weight:600;line-height:1.25}.pz em{display:block;font-style:normal;font-size:11.5px;color:var(--mute)}
+.pz b{font-size:22px;font-weight:700;line-height:1;min-width:34px;font-variant-numeric:tabular-nums}
+.pz strong{display:block;font-size:12.5px;font-weight:600;line-height:1.25}.pz em{display:block;font-style:normal;font-size:11px;color:var(--mute)}
 .pz i{position:absolute;left:0;bottom:0;height:4px;border-radius:0 2px 2px 0;transition:width .3s}
 .pz-pasado b{color:#9a3412}.pz-pasado i{background:#ea580c}.pz-m12 b{color:#b45309}.pz-m12 i{background:#f59e0b}
 .pz-m24 b{color:#1f4f8f}.pz-m24 i{background:#3f6fae}.pz-mas b{color:#166534}.pz-mas i{background:#22a06b}
 .pz.on{border-color:var(--navy2);box-shadow:inset 0 0 0 2px var(--navy2);background:#f3f7fd}
 /* Accesos rápidos */
-.quickbar{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:10px 14px;margin-bottom:14px;box-shadow:var(--sh);overflow:hidden}
+.quickbar{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:8px 14px;margin-bottom:12px;box-shadow:var(--sh);overflow:hidden}
 .quickbar>span{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--mute);white-space:nowrap}
 .quick{display:flex;gap:8px;overflow-x:auto;scrollbar-width:thin;padding:2px 0}
 .quick button{display:inline-flex;align-items:center;gap:7px;border:1px solid #d5dde8;background:#fff;border-radius:999px;padding:6px 13px 6px 8px;font-size:12.5px;font-weight:600;cursor:pointer;color:#2c3e57;white-space:nowrap;transition:background .15s,border-color .15s,color .15s}
@@ -83,10 +87,9 @@ button,input,select{font:inherit;color:inherit}.hide{display:none!important}:foc
 .zoom{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;box-shadow:0 2px 8px rgba(13,42,82,.08)}
 .zoom button{width:40px;height:38px;border:0;border-bottom:1px solid var(--line);background:#fff;cursor:pointer;font-size:20px;display:grid;place-items:center}
 .zoom button:last-child{border-bottom:0}.zoom button:hover{background:#f1f5fa}.zoom svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
-.legend{position:absolute;left:16px;bottom:16px;z-index:3;background:rgba(255,255,255,.96);border:1px solid var(--line);border-radius:10px;padding:10px 13px;box-shadow:0 4px 14px rgba(13,42,82,.08);font-size:12px}
-.legend b{display:block;font-weight:600;margin-bottom:6px}.legend .bar{width:190px;height:10px;border-radius:2px;background:linear-gradient(90deg,#d6e3f2,#8fb0d8,#3f6fae,#0d2a52)}
-.legend .ticks{display:flex;justify-content:space-between;color:var(--sub);margin-top:3px;font-variant-numeric:tabular-nums}
-.legend .k{display:flex;align-items:center;gap:6px;margin-top:5px;color:var(--sub)}.legend .k i{width:16px;height:11px;border-radius:2px}
+.legend{position:absolute;left:12px;bottom:12px;z-index:3;background:rgba(255,255,255,.93);border:1px solid var(--line);border-radius:9px;padding:5px 9px;box-shadow:0 2px 8px rgba(13,42,82,.1);font-size:10.5px;max-width:300px}
+.legend .lg-toggle{display:flex;align-items:center;gap:6px;border:0;background:none;padding:0;cursor:pointer;font-size:10.5px;font-weight:700;color:var(--sub);text-transform:uppercase;letter-spacing:.06em;width:100%;justify-content:space-between}.legend .lg-toggle span{transition:transform .15s}.legend.min .lg-toggle span{transform:rotate(-90deg)}.legend.min .lg-body{display:none}.legend .lg-body{margin-top:4px}.legend .lg-row{display:flex;align-items:center;gap:6px;color:var(--sub);font-variant-numeric:tabular-nums}.legend .lg-row em{font-style:normal;margin-left:2px}.legend .bar{width:96px;height:7px;border-radius:2px;background:linear-gradient(90deg,#d6e3f2,#8fb0d8,#3f6fae,#0d2a52)}.legend .lg-chips{display:flex;flex-wrap:wrap;gap:2px 10px;margin-top:4px}
+.legend .k{display:inline-flex;align-items:center;gap:4px;color:var(--sub);white-space:nowrap}.legend .k i{width:11px;height:8px;border-radius:2px}
 .attr{position:absolute;right:8px;bottom:6px;z-index:3;font-size:10.5px;color:#4b5a6d;background:rgba(255,255,255,.85);padding:1px 6px;border-radius:4px}
 .attr a{color:inherit}
 .map-wait{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#fff;border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:8px;padding:16px 18px;max-width:420px;width:85%;text-align:center;color:var(--sub);font-size:13px;z-index:4}
@@ -180,15 +183,16 @@ button,input,select{font:inherit;color:inherit}.hide{display:none!important}:foc
 .source-links a{background:#e7eef8;color:var(--navy2);border-radius:6px;padding:6px 11px;font-size:12px;font-weight:600;text-decoration:none}.source-links a:hover{background:var(--navy2);color:#fff}
 .more{display:block;width:calc(100% - 36px);margin:0 18px 18px;padding:10px;border:1px solid #cfd8e3;border-radius:8px;background:#fff;color:var(--navy);font-weight:600;cursor:pointer}
 .foot{margin-top:14px;font-size:11.5px;color:var(--sub);line-height:1.6}.foot a{color:var(--blue);font-weight:600}
-@media (max-width:1500px){.grid{grid-template-columns:280px minmax(0,1fr) 340px}.kpis{grid-template-columns:repeat(5,minmax(0,1fr))}.kpi.info{display:none}}
-@media (max-width:1300px){.pz-btns{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:1500px){.grid{grid-template-columns:280px minmax(0,1fr) 340px}}
+@media (max-width:1300px){.pz-btns{grid-template-columns:repeat(2,minmax(0,1fr))}.kpi{padding:8px 10px}}
 @media (max-width:1200px){.grid{grid-template-columns:270px minmax(0,1fr)}.right{grid-column:1/-1;position:static;max-height:none;display:grid;grid-template-columns:1fr 1.4fr}.lcard{max-height:520px}.nav{display:none}}
 @media (max-width:860px){.top{height:auto;padding:10px 12px;flex-wrap:wrap;gap:10px}.logo{border:0;padding:0}.brand span{display:none}.top-btn{margin-left:auto}
- .kpis{grid-template-columns:repeat(2,1fr)}.kpi:nth-child(5){grid-column:1/-1}
+ .band,.plazos{grid-template-columns:1fr}.band-t{border-right:0;border-bottom:1px solid var(--line);flex-direction:row;align-items:baseline;gap:8px;padding:7px 12px}
+ .kpis{grid-template-columns:repeat(3,1fr)}.kpi{border-bottom:1px solid var(--line2)}.kpi:nth-child(3){border-right:0}.kpi:nth-child(n+4){border-bottom:0}.kpi .ic{display:none}.kpi em{display:none}
  .grid{grid-template-columns:1fr}.side{position:static;max-height:none}.right{grid-template-columns:1fr}
  .map-stage{height:72vh;min-height:440px}.map-title{max-width:calc(100% - 80px);padding:9px 11px}.map-title h2{font-size:16px}.map-title p{display:none}
- .legend{padding:7px 9px}.legend .bar{width:130px}.contract-fields{grid-template-columns:1fr 1fr}.results{grid-template-columns:1fr;padding:12px}}
-@media (max-width:480px){.logo b{font-size:19px}.brand strong{font-size:15px}.contract-fields{grid-template-columns:1fr}.kpi b{font-size:22px}.legend .k{display:none}}
+ .legend{padding:4px 8px}.contract-fields{grid-template-columns:1fr 1fr}.results{grid-template-columns:1fr;padding:12px}}
+@media (max-width:480px){.logo b{font-size:19px}.brand strong{font-size:15px}.contract-fields{grid-template-columns:1fr}.kpi b{font-size:19px}.kpi span{font-size:11px}.legend .lg-chips{display:none}}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 .logo{gap:0}.logo-pill{display:flex;align-items:center;background:#fff;border-radius:8px;padding:3px 8px;height:44px}
 .logo-pill img{height:38px;width:auto;display:block}.logo-fb{display:flex;align-items:center;gap:12px}
@@ -201,19 +205,24 @@ button,input,select{font:inherit;color:inherit}.hide{display:none!important}:foc
  <button class="top-btn" id="topCsv" type="button">↓ Exportar CSV</button>
 </header>
 <main class="wrap">
- <section class="kpis" aria-label="Indicadores de la selección">
-  <div class="kpi"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 7h6l2 2h10v10H3z"/></svg></div><div><b id="count-exp">67</b><span>Expedientes</span><em id="kExpS">contratos y lotes</em></div></div>
-  <div class="kpi"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="18" r="2.5"/><circle cx="19" cy="18" r="2.5"/><path d="M11 7l-5 9M13 7l5 9M7.5 18h9"/></svg></div><div><b id="count-rel">492</b><span>Relaciones</span><em>contrato – distrito</em></div></div>
-  <div class="kpi"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2zM9 4v14M15 6v14"/></svg></div><div><b id="kDis">21</b><span>Distritos</span><em>con contratos en la selección</em></div></div>
-  <div class="kpi"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-4 3-6 6-6s6 2 6 6"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 14c3 0 5.5 1.6 5.5 5"/></svg></div><div><b id="kEmp">—</b><span>Empresas / UTE</span><em>adjudicatarias</em></div></div>
-  <div class="kpi"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 21V5l7-2v18M11 9h9v12M7 8h1M7 12h1M7 16h1M14 13h2M14 17h2"/></svg></div><div><b id="kGru">—</b><span>Grupos empresariales</span><em>claves de consulta</em></div></div>
-  <div class="kpi info"><i>i</i><div>Contratos municipales de servicios urbanos e infraestructuras del Ayuntamiento de Madrid. <span id="dataStamp">Datos del Excel maestro.</span></div></div>
+ <section class="band" aria-label="Resumen de la selección">
+  <div class="band-t"><b>Resumen</b><span>de la selección actual</span></div>
+  <div class="kpis">
+   <div class="kpi"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 7h6l2 2h10v10H3z"/></svg></div><div><b id="count-exp">67</b><span>Expedientes</span><em id="kExpS">contratos y lotes</em></div></div>
+   <div class="kpi"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="18" r="2.5"/><circle cx="19" cy="18" r="2.5"/><path d="M11 7l-5 9M13 7l5 9M7.5 18h9"/></svg></div><div><b id="count-rel">492</b><span>Relaciones</span><em>contrato – distrito</em></div></div>
+   <div class="kpi"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2zM9 4v14M15 6v14"/></svg></div><div><b id="kDis">21</b><span>Distritos</span><em>con contratos en la selección</em></div></div>
+   <div class="kpi"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-4 3-6 6-6s6 2 6 6"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 14c3 0 5.5 1.6 5.5 5"/></svg></div><div><b id="kEmp">—</b><span>Empresas / UTE</span><em>adjudicatarias</em></div></div>
+   <div class="kpi"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 21V5l7-2v18M11 9h9v12M7 8h1M7 12h1M7 16h1M14 13h2M14 17h2"/></svg></div><div><b id="kGru">—</b><span>Grupos empresariales</span><em>claves de consulta</em></div></div>
+  </div>
  </section>
  <section class="plazos" aria-label="Vencimiento de los contratos">
-  <div class="pz-head"><div><h2>Vencimiento de los contratos</h2><p><span id="plazoTot">–</span> · según la fecha de fin registrada en el Excel · referencia: hoy <span id="plazoRef"></span> · pulsa una tarjeta para filtrar</p></div></div>
-  <div class="pz-btns" id="plazoBtns"></div>
-  <button type="button" class="pz-sinline" id="pzSin"></button>
+  <div class="band-t"><b>Vencimientos</b><span>fecha de fin registrada · hoy <span id="plazoRef"></span></span></div>
+  <div class="pz-main">
+   <div class="pz-btns" id="plazoBtns"></div>
+   <button type="button" class="pz-sinline" id="pzSin"></button>
+  </div>
  </section>
+
  <section class="quickbar" aria-label="Accesos rápidos"><span>Accesos rápidos</span><div class="quick" id="quicks"></div></section>
  <div class="grid">
   <aside class="card side" aria-label="Filtros">
@@ -241,7 +250,7 @@ button,input,select{font:inherit;color:inherit}.hide{display:none!important}:foc
      <div class="north" aria-hidden="true">N<svg viewBox="0 0 14 18"><path d="M7 0l6 18-6-5-6 5z" fill="#16243a"/></svg></div>
      <div class="zoom"><button id="zoomIn" title="Acercar" aria-label="Acercar">+</button><button id="zoomOut" title="Alejar" aria-label="Alejar">−</button><button id="zoomFit" title="Encajar el mapa" aria-label="Encajar el mapa"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg></button><button id="full" title="Pantalla completa" aria-label="Pantalla completa"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button></div>
     </div>
-    <div class="legend"><b>Relaciones contrato – distrito</b><div class="bar"></div><div class="ticks"><span id="lgMin">–</span><span id="lgMid"></span><span id="lgMax">–</span></div><div class="k"><i style="background:#eef1f4;border:1px solid #c9d1db"></i>Sin contratos con estos filtros</div><div class="k"><i style="background:#123d7a;border:2px solid #f2b705"></i>Distrito seleccionado</div><div class="k" id="lgAmb"><i style="background:#8fb0d8"></i>Incluye contratos para todo Madrid</div></div>
+    <div class="legend" id="legend"><button type="button" class="lg-toggle" id="lgToggle" aria-expanded="true" title="Mostrar u ocultar la leyenda">Leyenda <span aria-hidden="true">▾</span></button><div class="lg-body"><div class="lg-row"><span id="lgMin">–</span><div class="bar"></div><span id="lgMax">–</span><em>relaciones</em><span id="lgMid" class="hide"></span></div><div class="lg-chips"><span class="k"><i style="background:#eef1f4;border:1px solid #c9d1db"></i>Sin contratos</span><span class="k"><i style="background:#123d7a;border:1.5px solid #f2b705"></i>Seleccionado</span><span class="k" id="lgAmb"><i style="background:#8fb0d8"></i>Incluye todo Madrid</span></div></div></div>
     <div class="attr" id="attr">© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors</div>
     <div class="map-wait" id="map-status">Cargando límites geográficos de Madrid…</div>
     <div class="map-tip hide" id="tip"></div>
@@ -275,7 +284,7 @@ button,input,select{font:inherit;color:inherit}.hide{display:none!important}:foc
   <div class="data-head"><div><h2 id="result-title">Contratos encontrados</h2><p id="result-sub">Aplica filtros o selecciona un distrito en el mapa.</p></div><button class="btn" id="download" type="button">↓ Descargar resultados CSV</button></div>
   <div class="results" id="results"></div><button class="more hide" id="more">Ver más resultados</button>
  </section>
- <div class="foot">Inventario documental generado automáticamente desde el Excel maestro (<span id="dataStamp2">–</span>), no consulta en tiempo real. Un mismo expediente puede figurar en varios distritos o lotes. Las fuentes y fechas deben consultarse en la documentación enlazada. <a target="_blank" rel="noopener" href="https://datos.madrid.es/dataset/900012-0-limites-administrativos-mapas">Fuente cartográfica municipal ↗</a> · Mapa base © OpenStreetMap contributors (respaldo: Esri) · Fotografías de distritos: Wikimedia Commons (autoría y licencia bajo cada foto); los distritos sin foto verificada muestran su silueta.</div>
+ <div class="foot"><b>Contratos municipales de servicios urbanos e infraestructuras del Ayuntamiento de Madrid.</b> Inventario documental generado automáticamente desde el Excel maestro (<span id="dataStamp2">–</span>), no consulta en tiempo real. Un mismo expediente puede figurar en varios distritos o lotes. Las fuentes y fechas deben consultarse en la documentación enlazada. <a target="_blank" rel="noopener" href="https://datos.madrid.es/dataset/900012-0-limites-administrativos-mapas">Fuente cartográfica municipal ↗</a> · Mapa base © OpenStreetMap contributors (respaldo: Esri) · Fotografías de distritos: Wikimedia Commons (autoría y licencia bajo cada foto); si no hay una foto libre disponible, se muestra la silueta del distrito.</div>
 </main>
 <script src="data/contratos.js"></script>
 <script>
@@ -540,8 +549,40 @@ const PHOTOS={
  'Barajas':{f:'Madrid_Barajas_T4_4.jpg',lugar:'Aeropuerto Adolfo Suárez Madrid-Barajas, Terminal 4',autor:'MdeVicente',lic:'CC BY-SA 4.0'},
  'Chamberí':{f:'Museo_Sorolla_%28Madrid%29_01.jpg',lugar:'Museo Sorolla',autor:'Luis García (Zaqarbal)',lic:'CC BY-SA 3.0'},
  'Salamanca':{f:'Biblioteca_Nacional_de_Espa%C3%B1a_%28Madrid%29_02.jpg',lugar:'Biblioteca Nacional de España',autor:'losmininos',lic:'CC BY-SA 2.0'},
- 'Puente de Vallecas':{f:'Estadio_de_Vallecas.jpg',lugar:'Campo de Fútbol de Vallecas',autor:'K3T0',lic:'CC BY 2.5 es'}
+ 'Puente de Vallecas':{f:'Estadio_de_Vallecas.jpg',lugar:'Campo de Fútbol de Vallecas',autor:'K3T0',lic:'CC BY 2.5 es'},
+ 'Usera':{f:'Caja_M%C3%A1gica_exterior.jpg',lugar:'Caja Mágica (barrio de San Fermín)',autor:'Alvaro Gandara Astray',lic:'CC BY 2.0'},
+ 'Tetuán':{f:'Mercado_de_Maravillas%2C_Madrid.JPG',lugar:'Mercado de Maravillas (Cuatro Caminos)',autor:'Asqueladd',lic:'CC BY-SA 3.0'},
+ 'Ciudad Lineal':{f:'Calle_de_Arturo_Soria.JPG',lugar:'Calle de Arturo Soria',autor:'Asqueladd',lic:'CC BY-SA 3.0'},
+ 'Moratalaz':{f:'Madrid_-_Moratalaz%2C_Iglesia_de_la_Presentaci%C3%B3n_de_Nuestra_Se%C3%B1ora_1.jpg',lugar:'Iglesia de la Presentación de Nuestra Señora',autor:'Zarateman',lic:'CC BY-SA 4.0'},
+ 'Hortaleza':{f:'Parque_Felipe_VI_%282%29_2601.JPG',lugar:'Mirador del Parque forestal de Valdebebas-Felipe VI',autor:'Balles2601',lic:'CC BY-SA 4.0'},
+ 'Vic\u00e1lvaro':{f:'Cerro_de_Almod%C3%B3var_%2822_de_octubre_de_2017%2C_Madrid%29_01.jpg',lugar:'Cerro de Almodóvar',autor:'Discasto',lic:'CC BY-SA 4.0'}
 };
+/* Distritos sin foto comprobada a mano: se busca la imagen principal de la ficha de Wikipedia de un lugar del distrito
+   y se leen la autoría y la licencia directamente de Wikimedia Commons. Solo se muestra si es una foto con licencia libre. */
+const WIKI_PHOTO={
+ 'Latina':{lugar:'Parque de Aluche',title:'Parque Aluche'},
+ 'Villaverde':{lugar:'Parque Ciudad de los Ángeles',title:'Parque Ciudad de los Ángeles'},
+ 'Villa de Vallecas':{lugar:'Santa Eugenia',title:'Santa Eugenia (Madrid)'}
+};
+const _wp=new Map();
+function resolveWikiPhoto(d){
+ if(_wp.has(d))return _wp.get(d);
+ const cfg=WIKI_PHOTO[d];
+ const pr=(async()=>{
+  try{
+   const j1=await (await fetch('https://es.wikipedia.org/w/api.php?action=query&redirects=1&prop=pageimages&piprop=name&format=json&origin=*&titles='+encodeURIComponent(cfg.title))).json();
+   const pg=Object.values(j1.query.pages)[0];const name=pg&&pg.pageimage;
+   if(!name||!/\.jpe?g$/i.test(name)||/(map|mapa|locali|locator|escudo|bandera|flag|coat|logo|plano|diagrama)/i.test(name))return null;
+   const j2=await (await fetch('https://commons.wikimedia.org/w/api.php?action=query&prop=imageinfo&iiprop=extmetadata%7Csize&format=json&origin=*&titles='+encodeURIComponent('File:'+name))).json();
+   const ii=Object.values(j2.query.pages)[0].imageinfo[0],md=ii.extmetadata||{};
+   const lic=(md.LicenseShortName&&md.LicenseShortName.value)||'';
+   if(!/^(CC[ -]|CC0|Public domain|PD)/i.test(lic)||ii.width<700)return null;
+   const art=new DOMParser().parseFromString((md.Artist&&md.Artist.value)||'','text/html').body.textContent.trim()||'autoría en Commons';
+   return {f:encodeURIComponent(name.replace(/ /g,'_')),lugar:cfg.lugar,autor:art,lic};
+  }catch(e){return null}
+ })();
+ _wp.set(d,pr);return pr;
+}
 let heroFor=null;
 function renderHero(d,force){
  const key=(d||'')+'|'+geoReady;if(heroFor===key&&!force)return;heroFor=key;
@@ -556,12 +597,13 @@ function renderHero(d,force){
    h.append(sv);
   }
  }
- const p=PHOTOS[d];if(!p)return;
- const img=new Image();img.alt=p.lugar+' ('+d+')';img.referrerPolicy='no-referrer';
- img.onload=()=>{if(heroFor!==key)return;h.classList.add('has-photo');h.prepend(img);
-  const cap=$('photoCap');cap.replaceChildren(document.createTextNode(p.lugar+' · Foto: '+p.autor+' · '+p.lic+' · '));
-  const a=node('a','','Wikimedia Commons ↗');a.href=FW+p.f;a.target='_blank';a.rel='noopener';cap.append(a);cap.classList.remove('hide')};
- img.onerror=()=>{};img.src=FP+p.f+'?width=900';
+ const show=p=>{const img=new Image();img.alt=p.lugar+' ('+d+')';img.referrerPolicy='no-referrer';
+  img.onload=()=>{if(heroFor!==key)return;h.classList.add('has-photo');h.prepend(img);
+   const cap=$('photoCap');cap.replaceChildren(document.createTextNode(p.lugar+' · Foto: '+p.autor+' · '+p.lic+' · '));
+   const a=node('a','','Wikimedia Commons ↗');a.href=FW+p.f;a.target='_blank';a.rel='noopener';cap.append(a);cap.classList.remove('hide')};
+  img.onerror=()=>{};img.src=FP+p.f+'?width=900'};
+ if(PHOTOS[d]){show(PHOTOS[d]);return}
+ if(WIKI_PHOTO[d])resolveWikiPhoto(d).then(q=>{if(q&&heroFor===key)show(q)});
 }
 function openFicha(key){
  const entries=window._entries||[];const index=entries.findIndex(r=>r.expediente+'|'+(r.lote||'')===key);if(index<0)return;
@@ -614,6 +656,7 @@ const QICON={'':'<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/>'
 document.querySelectorAll('#quicks button').forEach(b=>{const i=node('i','');i.setAttribute('aria-hidden','true');i.innerHTML='<svg viewBox="0 0 24 24">'+(QICON[b.dataset.key]||'')+'</svg>';b.prepend(i)});
 $('dClear').addEventListener('click',()=>{$('distrito').value='';$('contrato').value='';update()});
 $('ambitoBtn').addEventListener('click',()=>{const s=$('distrito');s.value=s.value==='Ámbito municipal'?'':'Ámbito municipal';update();if(s.value)$('fichas').scrollIntoView({behavior:'smooth'})});
+$('lgToggle').addEventListener('click',()=>{const m=$('legend').classList.toggle('min');$('lgToggle').setAttribute('aria-expanded',!m)});if(matchMedia('(max-width:860px)').matches){$('legend').classList.add('min');$('lgToggle').setAttribute('aria-expanded','false')}
 $('lFilter').addEventListener('input',renderSideList);$('topCsv').addEventListener('click',downloadCsv);
 /* ======== Vencimientos (fecha de fin registrada en el Excel) ======== */
 let activePlazo='';
@@ -631,13 +674,13 @@ function renderPlazos(){
   const n=node('b','',String(cnt[k]));const tx=node('span','');tx.append(node('strong','',t),node('em','',s));
   const bar=node('i','');bar.style.width=(100*cnt[k]/tot).toFixed(1)+'%';
   b.append(n,tx,bar);b.disabled=!cnt[k]&&activePlazo!==k;b.addEventListener('click',()=>{activePlazo=activePlazo===k?'':k;update()});box.append(b)});
- $('plazoTot').textContent=m.size+' contratos/lotes en la selección';const sl=$('pzSin');sl.classList.toggle('on',activePlazo==='sin');sl.textContent=activePlazo==='sin'?'✕ Mostrando solo los '+cnt.sin+' contratos/lotes con fecha de fin pendiente de confirmar · quitar':(cnt.sin?'Además, '+cnt.sin+' contrato(s)/lote(s) con fecha de fin pendiente de confirmar en el Excel · ver':'Todos los contratos de la selección tienen fecha de fin registrada');sl.disabled=!cnt.sin&&activePlazo!=='sin';
+ if($('plazoTot'))$('plazoTot').textContent=m.size+' contratos/lotes en la selección';const sl=$('pzSin');sl.classList.toggle('on',activePlazo==='sin');sl.textContent=activePlazo==='sin'?'✕ Mostrando solo los '+cnt.sin+' contratos/lotes con fecha de fin pendiente de confirmar · quitar':(cnt.sin?'Además, '+cnt.sin+' contrato(s)/lote(s) con fecha de fin pendiente de confirmar en el Excel · ver':'Todos los contratos de la selección tienen fecha de fin registrada');sl.disabled=!cnt.sin&&activePlazo!=='sin';
 }
 $('plazoRef').textContent=HOY.toLocaleDateString('es-ES');$('pzSin').addEventListener('click',()=>{activePlazo=activePlazo==='sin'?'':'sin';update()});
 /* Logo oficial: copia local descargada en la publicación; si no existe, se mantiene el escudo esquemático */
 (function(){const im=$('logoImg'),srcs=['img/logo-ayuntamiento.png'];let i=0;im.onload=()=>{$('logoPill').classList.remove('hide');$('logoFallback').classList.add('hide')};im.onerror=()=>{i++;if(i<srcs.length)im.src=srcs[i]};im.src=srcs[0]})();
 /* Sello de los datos */
 (function(){const m=window.MADRID_DATA;if(!m){document.body.insertAdjacentHTML('afterbegin','<div style="background:#b42318;color:#fff;padding:12px 18px;font-weight:600">No se han podido cargar los datos (data/contratos.js). Revisa la última ejecución de «Publicar mapa» en GitHub Actions.</div>');return}
- const t='Datos generados el '+m.generado+' desde '+m.origen;$('dataStamp').textContent=t+'.';$('dataStamp2').textContent=t})();
+ const t='Datos generados el '+m.generado+' desde '+m.origen;if($('dataStamp'))$('dataStamp').textContent=t+'.';$('dataStamp2').textContent=t})();
 $('count-exp').textContent=new Set(RECORDS.map(r=>r.expediente)).size;$('count-rel').textContent=RECORDS.length;populate();update();loadGeo();
 </script></body></html>
