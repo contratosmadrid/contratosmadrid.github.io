@@ -82,7 +82,7 @@ button,input,select{font:inherit;color:inherit}.hide{display:none!important}:foc
 .map-wait{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#fff;border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:8px;padding:16px 18px;max-width:420px;width:85%;text-align:center;color:var(--sub);font-size:13px;z-index:4}
 .map-tip{position:absolute;z-index:5;background:var(--navy);color:#fff;padding:8px 11px;border-radius:6px;font-size:12.5px;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25);white-space:nowrap}
 .map-meta{display:flex;justify-content:space-between;gap:10px;padding:8px 16px;border-top:1px solid var(--line2);font-size:11.5px;color:var(--sub);flex-wrap:wrap}
-.district{stroke:#fff;stroke-width:1.6;stroke-linejoin:round;cursor:pointer;transition:fill .25s,opacity .2s}
+.district{stroke:#fff;stroke-width:1.3;stroke-linejoin:round;cursor:pointer;transition:fill .25s,opacity .2s}
 .district:hover{stroke:var(--navy);stroke-width:2.6}
 .district.active{stroke:#071a36;stroke-width:4;filter:drop-shadow(0 4px 8px rgba(7,26,54,.45))}
 .geo .district{fill-opacity:.62;stroke:#0d2a52;stroke-width:1.4}.geo .district.active{fill-opacity:.8;stroke-width:4}
@@ -95,10 +95,13 @@ button,input,select{font:inherit;color:inherit}.hide{display:none!important}:foc
 .hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 85% 20%,rgba(255,255,255,.14) 0 60px,transparent 61px),radial-gradient(circle at 95% 95%,rgba(255,255,255,.08) 0 90px,transparent 91px),linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:auto,auto,22px 22px,22px 22px}
 .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .hero.has-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,26,54,.05) 30%,rgba(7,26,54,.78) 100%)}
-.hero .hx{position:absolute;left:16px;right:16px;bottom:12px;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;gap:10px}
+.hero .hx{position:absolute;left:16px;right:16px;max-width:58%;bottom:12px;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;gap:10px}
 .hero small{display:block;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;opacity:.85;font-weight:600}
 .hero h2{margin:0;font-size:25px;font-weight:650;line-height:1.1;text-shadow:0 1px 3px rgba(0,0,0,.25)}
-.hero .num{position:absolute;right:14px;top:6px;z-index:1;font-size:64px;font-weight:700;opacity:.12;line-height:1}
+.hero svg.sil{position:absolute;right:14px;top:12px;bottom:12px;width:44%;height:calc(100% - 24px);z-index:1;filter:drop-shadow(0 4px 10px rgba(0,0,0,.25))}
+.hero svg.sil path.one{fill:rgba(255,255,255,.92);stroke:#fff;stroke-width:2;vector-effect:non-scaling-stroke}
+.hero svg.sil path.all{fill:rgba(255,255,255,.16);stroke:rgba(255,255,255,.55);stroke-width:1;vector-effect:non-scaling-stroke}
+.hero .num{position:absolute;left:14px;top:6px;z-index:1;font-size:64px;font-weight:700;opacity:.12;line-height:1}
 .hero.has-photo .num{display:none}
 .hero button{border:1px solid rgba(255,255,255,.6);background:rgba(7,26,54,.35);color:#fff;border-radius:7px;padding:5px 9px;font-size:12px;font-weight:600;cursor:pointer;white-space:nowrap;backdrop-filter:blur(4px)}
 .credit{position:absolute;right:8px;top:6px;z-index:2;font-size:10px;color:#fff;background:rgba(0,0,0,.4);padding:1px 6px;border-radius:4px;text-decoration:none}
@@ -176,7 +179,8 @@ button,input,select{font:inherit;color:inherit}.hide{display:none!important}:foc
 .logo-pill img{height:38px;width:auto;display:block}.logo-fb{display:flex;align-items:center;gap:12px}
 .plazos{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh);padding:12px 14px;margin-bottom:14px}
 .pz-head h2{margin:0;font-size:15px;font-weight:650}.pz-head p{margin:2px 0 10px;font-size:12px;color:var(--sub)}
-.pz-btns{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.pz-btns{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.pz-sinline{display:block;margin-top:9px;border:0;background:none;padding:0;font-size:12px;color:var(--sub);cursor:pointer;text-align:left}.pz-sinline:hover{color:var(--blue);text-decoration:underline}.pz-sinline.on{color:var(--navy);font-weight:700}.pz-sinline:disabled{cursor:default;text-decoration:none;color:var(--mute)}
 .pz{position:relative;display:flex;align-items:center;gap:12px;text-align:left;border:1px solid var(--line);border-radius:10px;background:#fff;padding:10px 12px 14px;cursor:pointer;overflow:hidden;transition:box-shadow .15s,border-color .15s}
 .pz:hover:not(:disabled){box-shadow:0 4px 12px rgba(13,42,82,.1)}.pz:disabled{opacity:.5;cursor:default}
 .pz b{font-size:26px;font-weight:700;line-height:1;min-width:34px;font-variant-numeric:tabular-nums}
@@ -188,7 +192,7 @@ button,input,select{font:inherit;color:inherit}.hide{display:none!important}:foc
 .amb-sw{background:repeating-linear-gradient(45deg,#c9d9ee 0 3px,#f2f6fb 3px 6px);border:1px solid #9fb6d6}
 .amb-badge{position:absolute;left:50%;transform:translateX(-50%);bottom:16px;z-index:3;background:rgba(13,42,82,.92);color:#fff;border-radius:999px;padding:7px 14px;font-size:12.5px;box-shadow:0 6px 16px rgba(0,0,0,.2);max-width:calc(100% - 420px);text-align:center}
 .district.amb{stroke:#5f86bd;stroke-width:1.4}
-@media (max-width:1300px){.pz-btns{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:1300px){.pz-btns{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media (max-width:860px){.pz-btns{grid-template-columns:repeat(2,minmax(0,1fr))}.amb-badge{max-width:calc(100% - 24px);bottom:auto;top:12px}}
 </style></head>
 <body>
@@ -211,6 +215,7 @@ button,input,select{font:inherit;color:inherit}.hide{display:none!important}:foc
  <section class="plazos" aria-label="Vencimiento de los contratos">
   <div class="pz-head"><div><h2>Vencimiento de los contratos</h2><p><span id="plazoTot">–</span> · según la fecha de fin registrada en el Excel · referencia: hoy <span id="plazoRef"></span> · pulsa una tarjeta para filtrar</p></div></div>
   <div class="pz-btns" id="plazoBtns"></div>
+  <button type="button" class="pz-sinline" id="pzSin"></button>
  </section>
 
  <section class="quickbar" aria-label="Accesos rápidos"><span>Accesos rápidos</span><div class="quick" id="quicks"></div></section>
@@ -237,19 +242,19 @@ button,input,select{font:inherit;color:inherit}.hide{display:none!important}:foc
   <section class="card map-card" id="mapa">
    <div class="map-stage" id="map-stage">
     <svg id="map" viewBox="-130 -150 1810 1086" role="img" aria-label="Mapa interactivo de los 21 distritos de Madrid"></svg>
-    <div class="map-title"><h2>Los 21 distritos de Madrid</h2><p>Haz clic en un distrito para ver sus contratos; vuelve a pulsarlo para quitar la selección.</p>
-     <div class="views" role="group" aria-label="Vista del mapa"><button type="button" class="on" data-view="carto" aria-pressed="true">Vista esquemática</button><button type="button" data-view="geo" aria-pressed="false">Vista geográfica</button></div></div>
+    <div class="map-title"><h2>Los 21 distritos de Madrid</h2><p style="margin:0">Haz clic en un distrito para ver sus contratos; vuelve a pulsarlo para quitar la selección.</p>
+     </div>
     <div class="map-ctrl">
      <div class="north" aria-hidden="true">N<svg viewBox="0 0 14 18"><path d="M7 0l6 18-6-5-6 5z" fill="#16243a"/></svg></div>
      <div class="zoom"><button id="zoomIn" title="Acercar" aria-label="Acercar">+</button><button id="zoomOut" title="Alejar" aria-label="Alejar">−</button><button id="zoomFit" title="Encajar el mapa" aria-label="Encajar el mapa"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg></button><button id="full" title="Pantalla completa" aria-label="Pantalla completa"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button></div>
     </div>
-    <div class="legend"><b>Relaciones contrato – distrito</b><div class="bar"></div><div class="ticks"><span id="lgMin">–</span><span id="lgMid"></span><span id="lgMax">–</span></div><div class="k"><i style="background:#eef1f4;border:1px solid #c9d1db"></i>Sin contratos con estos filtros</div><div class="k"><i style="background:#123d7a;border:2px solid #0d2a52"></i>Distrito seleccionado</div><div class="k" id="lgAmb"><i class="amb-sw"></i>Cubierto solo por contratos de ámbito municipal</div></div>
+    <div class="legend"><b>Relaciones contrato – distrito</b><div class="bar"></div><div class="ticks"><span id="lgMin">–</span><span id="lgMid"></span><span id="lgMax">–</span></div><div class="k"><i style="background:#eef1f4;border:1px solid #c9d1db"></i>Sin contratos con estos filtros</div><div class="k"><i style="background:#123d7a;border:2px solid #0d2a52"></i>Distrito seleccionado</div><div class="k" id="lgAmb"><i style="background:#8fb0d8"></i>Incluye contratos de ámbito municipal (toda la ciudad)</div></div>
     <div class="attr hide" id="attr">© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> · © <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a></div>
     <div class="amb-badge hide" id="ambBadge"></div>
     <div class="map-wait" id="map-status">Cargando límites geográficos de Madrid…</div>
     <div class="map-tip hide" id="tip"></div>
    </div>
-   <div class="map-meta"><span id="viewNote"><b>Vista esquemática</b> · zonas centrales ampliadas para facilitar la lectura · no a escala</span><span id="source">Límites de distritos de Madrid</span></div>
+   <div class="map-meta"><span id="viewNote"><b>Límites reales</b> de los 21 distritos · proyección geográfica a escala · usa el zoom para ver el centro con detalle</span><span id="source">Límites de distritos de Madrid</span></div>
   </section>
 
   <aside class="right">
@@ -280,7 +285,7 @@ button,input,select{font:inherit;color:inherit}.hide{display:none!important}:foc
   <div class="data-head"><div><h2 id="result-title">Contratos encontrados</h2><p id="result-sub">Aplica filtros o selecciona un distrito en el mapa.</p></div><button class="btn" id="download" type="button">↓ Descargar resultados CSV</button></div>
   <div class="results" id="results"></div><button class="more hide" id="more">Ver más resultados</button>
  </section>
- <div class="foot">Inventario documental generado automáticamente desde el Excel maestro (<span id="dataStamp2">–</span>), no consulta en tiempo real. Un mismo expediente puede figurar en varios distritos o lotes. Las fuentes y fechas deben consultarse en la documentación enlazada. <a target="_blank" rel="noopener" href="https://datos.madrid.es/dataset/900012-0-limites-administrativos-mapas">Fuente cartográfica municipal ↗</a> · Fotografías de distritos: Wikimedia Commons (licencias libres, autoría en cada enlace).</div>
+ <div class="foot">Inventario documental generado automáticamente desde el Excel maestro (<span id="dataStamp2">–</span>), no consulta en tiempo real. Un mismo expediente puede figurar en varios distritos o lotes. Las fuentes y fechas deben consultarse en la documentación enlazada. <a target="_blank" rel="noopener" href="https://datos.madrid.es/dataset/900012-0-limites-administrativos-mapas">Fuente cartográfica municipal ↗</a></div>
 </main>
 <script src="data/contratos.js"></script>
 <script>
@@ -290,7 +295,7 @@ const DISTRICTS=['Centro','Arganzuela','Retiro','Salamanca','Chamartín','Tetuá
 const GEO_URLS=['data/madrid-districts.geojson','https://cdn.jsdelivr.net/gh/codeforgermany/click_that_hood@main/public/data/madrid-districts.geojson','https://raw.githubusercontent.com/codeforgermany/click_that_hood/main/public/data/madrid-districts.geojson'];
 const $=id=>document.getElementById(id);const N=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
 const FIELDS=['distrito','area','direccion','unidad','grupo','empresa','servicio','parque','contrato'];let activeQuick='',features=[],geoReady=false,page=0,base={x:-130,y:-150,w:1810,h:1086},zoom=1,drag=null,view={...base};
-const QUICK=[['','Todos'],['integral','Contratos integrales'],['retiro','El Retiro y Casa de Campo'],['residuos','Residuos'],['zonas','Zonas verdes'],['obras','Pavimentos e infraestructuras'],['instalaciones','Instalaciones urbanas'],['movilidad','Tráfico y taxis'],['ambiental','Sostenibilidad y medio ambiente'],['tecnologia','Tecnología'],['acciona','Acciona']];
+const QUICK=[['','Todos'],['integral','Contratos integrales'],['retiro','El Retiro y Casa de Campo'],['residuos','Residuos'],['zonas','Zonas verdes'],['obras','Pavimentos e infraestructuras'],['instalaciones','Instalaciones urbanas'],['movilidad','Tráfico y taxis'],['ambiental','Sostenibilidad y medio ambiente'],['tecnologia','Tecnología']];
 const PARKS=['El Retiro','Casa de Campo','Madrid Río','Parque del Oeste','Juan Carlos I','El Capricho','Parques integrales'];
 const PAL=['#bddccf','#8bc7b8','#d0e2b1','#7fb8cd','#9bc9e4','#f0dbb8','#b7b9db','#aad8d8','#e1c2cb','#bed1aa','#e7cbac','#a8cde8','#b9d1d9','#abcab9','#b0d5d0','#d9c9a9','#c5d9e9','#d2ded0','#bcbacb','#adc6b2','#d1e2ce'];
 const grps=r=>String(r.grupos||'').split('|').map(x=>x.trim()).filter(x=>x&&!/sin grupo acreditado|grupo no acreditado/i.test(x));
@@ -451,6 +456,7 @@ function drawMap(rows){
  const root=$('map');root.replaceChildren(background());
  let counts=new Map();rows.forEach(r=>counts.set(N(r.distrito),(counts.get(N(r.distrito))||0)+1));
  const ambN=rows.filter(r=>r.distrito==='Ámbito municipal').length,ambE=new Set(rows.filter(r=>r.distrito==='Ámbito municipal').map(r=>r.expediente)).size;const pd=svg('defs');const pat=svg('pattern',{id:'ambPat',patternUnits:'userSpaceOnUse',width:12,height:12,patternTransform:'rotate(45)'});pat.append(svg('rect',{width:12,height:12,fill:'#eef3fa'}),svg('rect',{width:5,height:12,fill:'#c9d9ee'}));pd.append(pat);root.append(pd);
+ const own0=new Map(counts);if(ambN)DISTRICTS.forEach(x=>counts.set(N(x),(counts.get(N(x))||0)+ambN));
  const chosen=$('distrito').value,layer=svg('g',{'aria-label':'Mapa esquemático de los 21 distritos, con nombres dentro de sus límites'});root.append(layer);
  const labels=svg('g',{'aria-label':'Nombres de distritos colocados sobre sus zonas'});
  for(const d of features){if(!DISTRICTS.includes(d.name))continue;
@@ -460,14 +466,14 @@ function drawMap(rows){
   const path=svg('path',{d:all.join(' '),fill:chosen===d.name?'#123d7a':c?blueFill(c,counts):ambN?'url(#ambPat)':'#eef1f4',class:'district'+(chosen===d.name?' active':'')+(!c&&ambN?' amb':''),role:'button',tabindex:0,'aria-label':d.name+' · '+c+' registros'});
   path.addEventListener('click',()=>chooseDistrict(d.name));
   path.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();chooseDistrict(d.name)}});
-  path.addEventListener('pointermove',e=>{let box=$('map-stage').getBoundingClientRect();$('tip').classList.remove('hide');$('tip').style.left=Math.min(box.width-250,e.clientX-box.left+12)+'px';$('tip').style.top=Math.max(12,e.clientY-box.top-46)+'px';$('tip').textContent=d.name+' · '+c+' relaciones propias'+(ambN?' + '+ambE+' expediente(s) de ámbito municipal (toda la ciudad)':'')});
+  path.addEventListener('pointermove',e=>{let box=$('map-stage').getBoundingClientRect();$('tip').classList.remove('hide');$('tip').style.left=Math.min(box.width-250,e.clientX-box.left+12)+'px';$('tip').style.top=Math.max(12,e.clientY-box.top-46)+'px';const o=own0.get(N(d.name))||0;$('tip').textContent=d.name+' · '+o+' relaciones propias'+(ambN?' + '+ambN+' de ámbito municipal ('+ambE+' expediente(s) que cubren toda la ciudad)':'')});
   path.addEventListener('pointerleave',()=>$('tip').classList.add('hide'));
   layer.append(path);
   const [x,y,dist,w,h]=bestInterior(d);const lines=PARTS[d.name]||[d.name];
   let chars=Math.max(...lines.map(t=>t.length));
   // Letras GRANDES encima de su distrito. Se ajusta la longitud con dos líneas cuando conviene.
   const estimatedWidth=Math.max(25,Math.min(w*.84,dist*3.25));
-  const fs=Math.max(11,Math.min(19,estimatedWidth/(chars*.59),h/(lines.length*1.12)));
+  const fs=Math.max(8.5,Math.min(19,estimatedWidth/(chars*.59),h/(lines.length*1.12)));
   const gap=fs*1.02,y0=y-(lines.length-1)*gap/2+fs*.32;
   let g=svg('g',{'aria-label':d.name,'data-district-label':d.name});
   lines.forEach((line,i)=>{const t=svg('text',{x:x.toFixed(1),y:(y0+i*gap).toFixed(1),'font-size':fs.toFixed(1),class:'district-label'});t.textContent=line;g.append(t)});
@@ -475,11 +481,11 @@ function drawMap(rows){
  }
  root.append(labels);
 }
-function ambUI(rows){const a=rows.filter(r=>r.distrito==='Ámbito municipal'),e=new Set(a.map(r=>r.expediente)).size;$('ambBadge').classList.toggle('hide',!a.length);$('ambBadge').textContent=a.length?'La selección incluye '+e+' expediente(s) de ámbito municipal que cubren los 21 distritos':'';$('lgAmb').classList.toggle('hide',!a.length);const em=$('kDis').parentElement.querySelector('em');if(a.length){$('kDis').textContent='21';em.textContent='incluye cobertura de ámbito municipal'}else em.textContent='con contratos en la selección'}
+function ambUI(rows){const a=rows.filter(r=>r.distrito==='Ámbito municipal'),e=new Set(a.map(r=>r.expediente)).size;$('ambBadge').classList.toggle('hide',!a.length);$('ambBadge').textContent=a.length?'Incluye '+e+' expediente(s) de ámbito municipal: se suman a los 21 distritos':'';$('lgAmb').classList.toggle('hide',!a.length);const em=$('kDis').parentElement.querySelector('em');if(a.length){$('kDis').textContent='21';em.textContent='incluye cobertura de ámbito municipal'}else em.textContent='con contratos en la selección'}
 function chooseDistrict(d){$('distrito').value=$('distrito').value===d?'':d;update();}
 function setView(){let v=view;$('map').setAttribute('viewBox',`${v.x} ${v.y} ${v.w} ${v.h}`)}
 function zoomBy(f){let cx=view.x+view.w/2,cy=view.y+view.h/2;let w=Math.max(250,Math.min(2200,view.w*f)),h=w*930/1550;view={x:cx-w/2,y:cy-h/2,w,h};setView()}
-async function loadGeo(){for(const url of GEO_URLS){try{const ctr=new AbortController();const t=setTimeout(()=>ctr.abort(),8500);let response=await fetch(url,{signal:ctr.signal});clearTimeout(t);if(!response.ok)continue;let json=await response.json();if(json?.features?.length>=21){rawGeo=json.features;features=mapMode==='geo'?projectMercator(rawGeo):projectGeometry(rawGeo);geoReady=true;$('map-status').classList.add('hide');$('source').textContent='Cartograma ampliado del centro · límites deformados para legibilidad · no a escala';drawMap(RECORDS.filter(r=>match(r)));paintLabels();return}}catch(e){console.warn('Cartografía no disponible',e)}}$('map-status').textContent='No se ha podido cargar la geometría del mapa. Comprueba la conexión. Puedes utilizar los filtros para consultar los contratos.';}
+async function loadGeo(){for(const url of GEO_URLS){try{const ctr=new AbortController();const t=setTimeout(()=>ctr.abort(),8500);let response=await fetch(url,{signal:ctr.signal});clearTimeout(t);if(!response.ok)continue;let json=await response.json();if(json?.features?.length>=21){rawGeo=json.features;features=projectMercator(rawGeo);geoReady=true;$('map-status').classList.add('hide');$('source').textContent='Límites de distritos de Madrid';renderHero($('distrito').value,true);drawMap(RECORDS.filter(r=>match(r)));paintLabels();return}}catch(e){console.warn('Cartografía no disponible',e)}}$('map-status').textContent='No se ha podido cargar la geometría del mapa. Comprueba la conexión. Puedes utilizar los filtros para consultar los contratos.';}
 QUICK.forEach(([key,title])=>{let b=node('button','',title);b.dataset.key=key;b.addEventListener('click',()=>{activeQuick=activeQuick===key?'':key;update()});$('quicks').append(b)});
 FIELDS.forEach(k=>$(k).addEventListener('change',update));$('buscar').addEventListener('input',update);$('limpiar').addEventListener('click',()=>{FIELDS.forEach(k=>$(k).value='');$('buscar').value='';activeQuick='';activePlazo='';view={...base};setView();update()});$('more').addEventListener('click',()=>{page++;renderSlice()});$('download').addEventListener('click',downloadCsv);$('zoomIn').addEventListener('click',()=>zoomBy(.8));$('zoomOut').addEventListener('click',()=>zoomBy(1.25));$('zoomFit').addEventListener('click',()=>{view={...base};setView()});$('full').addEventListener('click',()=>{$('map-stage').requestFullscreen?.()});
 const map=$('map');map.addEventListener('pointerdown',e=>{if(e.button!==0||e.target!==map)return;drag={x:e.clientX,y:e.clientY,view:{...view}};map.classList.add('grabbing');map.setPointerCapture(e.pointerId)});map.addEventListener('pointermove',e=>{if(!drag)return;let rect=map.getBoundingClientRect();view.x=drag.view.x-(e.clientX-drag.x)*view.w/rect.width;view.y=drag.view.y-(e.clientY-drag.y)*view.h/rect.height;setView()});map.addEventListener('pointerup',e=>{drag=null;map.classList.remove('grabbing')});map.addEventListener('wheel',e=>{e.preventDefault();zoomBy(e.deltaY>0?1.1:.9)},{passive:false});
@@ -515,7 +521,7 @@ function background(){
   const gr=svg('radialGradient',{id:'vig',cx:'50%',cy:'50%',r:'75%'});gr.append(svg('stop',{offset:'55%','stop-color':'#000','stop-opacity':'0'}),svg('stop',{offset:'100%','stop-color':'#2f4a2a','stop-opacity':'.18'}));
   defs.append(f,sh,gr);g.append(defs);
   g.append(svg('rect',{x:-2200,y:-1400,width:5950,height:3730,fill:'#dfe8d0'}));
-  g.append(svg('rect',{x:-2200,y:-1400,width:5950,height:3730,fill:'#cfdcbc',filter:'url(#relief)',opacity:'.5'}));
+  g.append(svg('rect',{x:-2200,y:-1400,width:5950,height:3730,fill:'#cfdcbc',filter:'url(#relief)',opacity:'.62'}));
   /* Cauces de agua orientativos (decorativos, fuera del área de distritos) */
   g.append(svg('rect',{x:-2200,y:-1400,width:5950,height:3730,fill:'url(#vig)'}));
  }else{
@@ -539,24 +545,19 @@ function setMapMode(m){
 }
 document.querySelectorAll('.views button').forEach(b=>b.addEventListener('click',()=>setMapMode(b.dataset.view)));
 /* Fotografías reales verificadas en Wikimedia Commons. Si no hay foto verificada, diseño sin imagen. */
-const PHOTOS={
- 'Centro':{src:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Madrid-_Puerta_del_Sol_-_51454839271.jpg/960px-Madrid-_Puerta_del_Sol_-_51454839271.jpg',page:'https://commons.wikimedia.org/wiki/File:Madrid-_Puerta_del_Sol_-_51454839271.jpg',cap:'Puerta del Sol'},
- 'Retiro':{src:'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Palacio_de_Cristal%2C_Retiro%2C_Madrid.jpg/500px-Palacio_de_Cristal%2C_Retiro%2C_Madrid.jpg',page:'https://commons.wikimedia.org/wiki/File:Palacio_de_Cristal,_Retiro,_Madrid.jpg',cap:'Palacio de Cristal (Parque de El Retiro) · vpogarcia, CC BY-SA 2.0'},
- 'Moncloa-Aravaca':{src:'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Templo_de_Debod_(Madrid)_31.jpg/1280px-Templo_de_Debod_(Madrid)_31.jpg',page:'https://commons.wikimedia.org/wiki/File:Templo_de_Debod_(Madrid)_31.jpg',cap:'Templo de Debod'},
- 'Fuencarral-El Pardo':{src:'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Cuatro_Torres_(49170066717).jpg/1280px-Cuatro_Torres_(49170066717).jpg',page:'https://commons.wikimedia.org/wiki/File:Cuatro_Torres_(49170066717).jpg',cap:'Cuatro Torres Business Area'},
- 'Arganzuela':{src:'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Mercado_y_Matadero_de_Aves-Arganzuela.jpg/330px-Mercado_y_Matadero_de_Aves-Arganzuela.jpg',page:'https://commons.wikimedia.org/wiki/File:Mercado_y_Matadero_de_Aves-Arganzuela.jpg',cap:'Antiguo Mercado y Matadero de Aves (Matadero Madrid)'},
- 'San Blas-Canillejas':{src:'https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Wanda-Metropolitano.jpg/960px-Wanda-Metropolitano.jpg',page:'https://commons.wikimedia.org/wiki/File:Wanda-Metropolitano.jpg',cap:'Estadio Metropolitano'}
-};
+  /* Cabecera del panel: silueta real del distrito (mismo diseño para los 21) */
 let heroFor=null;
-function renderHero(d){
- const key=d||'';if(heroFor===key)return;heroFor=key;
- const h=$('hero');h.querySelectorAll('img,.credit').forEach(x=>x.remove());h.classList.remove('has-photo');$('photoCap').classList.add('hide');
- const idx=DISTRICTS.indexOf(d);$('dNum').textContent=idx>=0?String(idx+1).padStart(2,'0'):'';
- const p=PHOTOS[d];if(!p)return;
- const img=new Image();img.alt=p.cap+' ('+d+')';img.loading='lazy';img.referrerPolicy='no-referrer';
- img.onload=()=>{if(heroFor!==key)return;h.classList.add('has-photo');const c=node('a','credit','Foto ↗');c.href=p.page;c.target='_blank';c.rel='noopener';c.title='Ver autoría y licencia en Wikimedia Commons';h.append(c);$('photoCap').textContent=p.cap+' · Wikimedia Commons';$('photoCap').classList.remove('hide')};
- img.onerror=()=>img.remove();img.src=p.src;h.prepend(img);
-}
+  function renderHero(d,force){
+   const key=(d||'')+'|'+geoReady;if(heroFor===key&&!force)return;heroFor=key;
+   const h=$('hero');h.querySelectorAll('svg.sil').forEach(x=>x.remove());
+   const idx=DISTRICTS.indexOf(d);$('dNum').textContent=idx>=0?String(idx+1).padStart(2,'0'):'';
+   if(!geoReady)return;
+   const pick=features.filter(f=>DISTRICTS.includes(f.name)&&(!d||!DISTRICTS.includes(d)||f.name===d));if(!pick.length)return;
+   let x1=1e9,y1=1e9,x2=-1e9,y2=-1e9;pick.forEach(f=>f.projected.forEach(p=>p.forEach(r=>r.forEach(([x,y])=>{x1=Math.min(x1,x);y1=Math.min(y1,y);x2=Math.max(x2,x);y2=Math.max(y2,y)}))));
+   const pad=Math.max(x2-x1,y2-y1)*.08,sv=svg('svg',{class:'sil',viewBox:(x1-pad)+' '+(y1-pad)+' '+(x2-x1+2*pad)+' '+(y2-y1+2*pad),preserveAspectRatio:'xMidYMid meet','aria-hidden':'true'});
+   pick.forEach(f=>{const dd=[];f.projected.forEach(p=>p.forEach(r=>{if(r.length)dd.push('M'+r.map(q=>q.map(v=>v.toFixed(1)).join(',')).join('L')+'Z')}));sv.append(svg('path',{d:dd.join(' '),class:d&&DISTRICTS.includes(d)?'one':'all'}))});
+   h.append(sv);
+  }
 function openFicha(key){
  const entries=window._entries||[];const index=entries.findIndex(r=>r.expediente+'|'+(r.lote||'')===key);if(index<0)return;
  if(index>=24*(page+1)){page=Math.floor(index/24);renderSlice();}
@@ -595,6 +596,7 @@ function afterUpdate(rows){
  $('lAll').textContent='Ver todas las fichas'+(d?' de '+d:'')+' ('+entries.length+') →';
  renderSideList();
  const counts=new Map();rows.forEach(r=>counts.set(N(r.distrito),(counts.get(N(r.distrito))||0)+1));
+ const _a=rows.filter(r=>r.distrito==='Ámbito municipal').length;if(_a)DISTRICTS.forEach(x=>counts.set(N(x),(counts.get(N(x))||0)+_a));
  const [mn,mx]=districtRange(counts);$('lgMin').textContent=mx?mn:'–';$('lgMax').textContent=mx?mx:'–';$('lgMid').textContent=mx&&mx-mn>2?Math.round((mn+mx)/2):'';
  const amb=RECORDS.filter(r=>r.distrito==='Ámbito municipal'&&match(r,'distrito'));
  $('ambitoTxt').textContent=amb.length+' relaciones · '+new Set(amb.map(r=>r.expediente)).size+' expedientes con los filtros actuales';
@@ -611,7 +613,7 @@ $('lFilter').addEventListener('input',renderSideList);$('topCsv').addEventListen
 /* ======== Vencimientos (fecha de fin registrada en el Excel) ======== */
 let activePlazo='';
 const HOY=(()=>{const d=new Date();d.setHours(0,0,0,0);return d})();
-const PLAZOS=[['pasado','Fin registrado ya pasado','comprobar prórroga o sustitución'],['m12','Vence en menos de 1 año','en los próximos 12 meses'],['m24','Vence en 1–2 años','entre 12 y 24 meses'],['mas','Vence en más de 2 años','más de 24 meses'],['sin','Sin fecha de fin acreditada','no consta en el Excel']];
+const PLAZOS=[['pasado','Fin registrado ya pasado','comprobar prórroga o sustitución'],['m12','Vence en menos de 1 año','en los próximos 12 meses'],['m24','Vence en 1–2 años','entre 12 y 24 meses'],['mas','Vence en más de 2 años','más de 24 meses'],['sin','Fecha de fin pendiente de confirmar','no consta en el Excel']];
 function parseFin(s){const m=String(s||'').match(/^(\d{2})\/(\d{2})\/(\d{4})$/);return m?new Date(+m[3],+m[2]-1,+m[1]):null}
 function plazoOf(r){const f=parseFin(r.fin);if(!f)return 'sin';if(f<HOY)return 'pasado';const y1=new Date(HOY);y1.setFullYear(y1.getFullYear()+1);const y2=new Date(HOY);y2.setFullYear(y2.getFullYear()+2);return f<y1?'m12':f<y2?'m24':'mas'}
 function renderPlazos(){
@@ -619,14 +621,14 @@ function renderPlazos(){
  base.forEach(r=>{const k=r.expediente+'|'+(r.lote||'');if(!m.has(k))m.set(k,plazoOf(r))});
  const cnt={};PLAZOS.forEach(p=>cnt[p[0]]=0);m.forEach(v=>cnt[v]++);
  const tot=Math.max(1,m.size),box=$('plazoBtns');box.replaceChildren();
- PLAZOS.forEach(([k,t,s])=>{const b=node('button','pz pz-'+k+(activePlazo===k?' on':''));b.type='button';b.setAttribute('aria-pressed',activePlazo===k);
+ PLAZOS.filter(p=>p[0]!=='sin').forEach(([k,t,s])=>{const b=node('button','pz pz-'+k+(activePlazo===k?' on':''));b.type='button';b.setAttribute('aria-pressed',activePlazo===k);
   b.title=activePlazo===k?'Pulsa para quitar este filtro':'Pulsa para ver solo estos contratos';
   const n=node('b','',String(cnt[k]));const tx=node('span','');tx.append(node('strong','',t),node('em','',s));
   const bar=node('i','');bar.style.width=(100*cnt[k]/tot).toFixed(1)+'%';
   b.append(n,tx,bar);b.disabled=!cnt[k]&&activePlazo!==k;b.addEventListener('click',()=>{activePlazo=activePlazo===k?'':k;update()});box.append(b)});
- $('plazoTot').textContent=m.size+' contratos/lotes en la selección';
+ $('plazoTot').textContent=m.size+' contratos/lotes en la selección';const sl=$('pzSin');sl.classList.toggle('on',activePlazo==='sin');sl.textContent=activePlazo==='sin'?'✕ Mostrando solo los '+cnt.sin+' contratos/lotes con fecha de fin pendiente de confirmar · quitar':(cnt.sin?'Además, '+cnt.sin+' contrato(s)/lote(s) con fecha de fin pendiente de confirmar en el Excel · ver':'Todos los contratos de la selección tienen fecha de fin registrada');sl.disabled=!cnt.sin&&activePlazo!=='sin';
 }
-$('plazoRef').textContent=HOY.toLocaleDateString('es-ES');
+$('plazoRef').textContent=HOY.toLocaleDateString('es-ES');$('pzSin').addEventListener('click',()=>{activePlazo=activePlazo==='sin'?'':'sin';update()});
 
 /* Logo oficial: copia local descargada en la publicación; si no existe, se mantiene el escudo esquemático */
 (function(){const im=$('logoImg'),srcs=['img/logo-ayuntamiento.png'];let i=0;im.onload=()=>{$('logoPill').classList.remove('hide');$('logoFallback').classList.add('hide')};im.onerror=()=>{i++;if(i<srcs.length)im.src=srcs[i]};im.src=srcs[0]})();
