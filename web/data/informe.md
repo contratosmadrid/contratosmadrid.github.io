@@ -1,4 +1,4 @@
-# Informe de conversión · 26/10/2026 10:54
+# Informe de conversión · 26/10/2026 11:06
 
 Excel: `Excel_Contratos_Madrid_Definitivo.xlsx`
 
