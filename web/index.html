@@ -72,7 +72,7 @@ button,input,select{font:inherit;color:inherit}.hide{display:none!important}:foc
 .adv-note{font-size:11.5px;color:var(--mute);margin:-4px 0 10px}
 /* Mapa */
 .map-card{overflow:hidden;display:flex;flex-direction:column}
-.map-stage{position:relative;height:clamp(560px,calc(100vh - 290px),980px);min-height:560px;background:#e9eef1;overflow:hidden}
+.map-stage{position:relative;height:clamp(560px,calc(100vh - 290px),980px);min-height:560px;background:#eceff2;overflow:hidden}
 .map-stage svg{display:block;width:100%;height:100%;touch-action:none;cursor:grab;user-select:none}
 .map-stage svg.grabbing{cursor:grabbing}.map-stage:fullscreen{height:100vh}
 .map-title{position:absolute;left:16px;top:16px;z-index:3;background:rgba(255,255,255,.95);border:1px solid var(--line);border-radius:10px;padding:12px 16px;box-shadow:0 4px 14px rgba(13,42,82,.1);max-width:360px}
@@ -96,12 +96,13 @@ button,input,select{font:inherit;color:inherit}.hide{display:none!important}:foc
 .amb-note .gl{width:30px;height:30px;border-radius:50%;background:var(--blue);display:grid;place-items:center;flex-shrink:0}
 .amb-note .gl svg{width:17px;height:17px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 .amb-note b{display:block;font-size:13.5px;color:var(--navy)}.amb-note span{font-size:12.5px;color:var(--sub)}
-.district{stroke:#fff;stroke-width:1.3;stroke-linejoin:round;cursor:pointer;transition:fill .25s,opacity .2s}
-.district:hover{stroke:var(--navy);stroke-width:2.6}
-.district.active{stroke:#071a36;stroke-width:4;filter:drop-shadow(0 4px 8px rgba(7,26,54,.45))}
-.geo .district{fill-opacity:.7;stroke:#0d2a52;stroke-width:1.4}.geo .district.active{fill-opacity:.88;stroke-width:4}
+/* Distritos: relleno azul intenso, borde blanco; el seleccionado lleva borde ámbar */
+.district{stroke:#fff;stroke-width:1.8;stroke-linejoin:round;cursor:pointer;transition:fill .25s,opacity .2s}
+.district:hover{stroke:#0d2a52;stroke-width:2.8}
+.district.active{stroke:#f2b705;stroke-width:4.5;filter:drop-shadow(0 4px 8px rgba(7,26,54,.45))}
+.geo .district{fill-opacity:.86}.geo .district.active{fill-opacity:1}
 .district-label{font-weight:600;fill:#0e2240;stroke:rgba(255,255,255,.9);stroke-width:3px;paint-order:stroke;stroke-linejoin:round;pointer-events:none;text-anchor:middle}
-.district-label.dark{fill:#fff;stroke:rgba(7,26,54,.5)}
+.district-label.dark{fill:#fff;stroke:rgba(7,26,54,.55)}
 /* Panel derecho */
 .right{position:sticky;top:78px;max-height:calc(100vh - 90px);display:flex;flex-direction:column;gap:12px}
 .dcard{overflow:hidden;flex-shrink:0}
@@ -240,7 +241,7 @@ button,input,select{font:inherit;color:inherit}.hide{display:none!important}:foc
      <div class="north" aria-hidden="true">N<svg viewBox="0 0 14 18"><path d="M7 0l6 18-6-5-6 5z" fill="#16243a"/></svg></div>
      <div class="zoom"><button id="zoomIn" title="Acercar" aria-label="Acercar">+</button><button id="zoomOut" title="Alejar" aria-label="Alejar">−</button><button id="zoomFit" title="Encajar el mapa" aria-label="Encajar el mapa"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg></button><button id="full" title="Pantalla completa" aria-label="Pantalla completa"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button></div>
     </div>
-    <div class="legend"><b>Relaciones contrato – distrito</b><div class="bar"></div><div class="ticks"><span id="lgMin">–</span><span id="lgMid"></span><span id="lgMax">–</span></div><div class="k"><i style="background:#eef1f4;border:1px solid #c9d1db"></i>Sin contratos con estos filtros</div><div class="k"><i style="background:#123d7a;border:2px solid #0d2a52"></i>Distrito seleccionado</div><div class="k" id="lgAmb"><i style="background:#8fb0d8"></i>Incluye contratos para todo Madrid</div></div>
+    <div class="legend"><b>Relaciones contrato – distrito</b><div class="bar"></div><div class="ticks"><span id="lgMin">–</span><span id="lgMid"></span><span id="lgMax">–</span></div><div class="k"><i style="background:#eef1f4;border:1px solid #c9d1db"></i>Sin contratos con estos filtros</div><div class="k"><i style="background:#123d7a;border:2px solid #f2b705"></i>Distrito seleccionado</div><div class="k" id="lgAmb"><i style="background:#8fb0d8"></i>Incluye contratos para todo Madrid</div></div>
     <div class="attr" id="attr">© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors</div>
     <div class="map-wait" id="map-status">Cargando límites geográficos de Madrid…</div>
     <div class="map-tip hide" id="tip"></div>
@@ -274,7 +275,7 @@ button,input,select{font:inherit;color:inherit}.hide{display:none!important}:foc
   <div class="data-head"><div><h2 id="result-title">Contratos encontrados</h2><p id="result-sub">Aplica filtros o selecciona un distrito en el mapa.</p></div><button class="btn" id="download" type="button">↓ Descargar resultados CSV</button></div>
   <div class="results" id="results"></div><button class="more hide" id="more">Ver más resultados</button>
  </section>
- <div class="foot">Inventario documental generado automáticamente desde el Excel maestro (<span id="dataStamp2">–</span>), no consulta en tiempo real. Un mismo expediente puede figurar en varios distritos o lotes. Las fuentes y fechas deben consultarse en la documentación enlazada. <a target="_blank" rel="noopener" href="https://datos.madrid.es/dataset/900012-0-limites-administrativos-mapas">Fuente cartográfica municipal ↗</a> · Mapa base © OpenStreetMap contributors (respaldo: Esri) · Fotografías de distritos: Wikimedia Commons (autoría y licencia bajo cada foto).</div>
+ <div class="foot">Inventario documental generado automáticamente desde el Excel maestro (<span id="dataStamp2">–</span>), no consulta en tiempo real. Un mismo expediente puede figurar en varios distritos o lotes. Las fuentes y fechas deben consultarse en la documentación enlazada. <a target="_blank" rel="noopener" href="https://datos.madrid.es/dataset/900012-0-limites-administrativos-mapas">Fuente cartográfica municipal ↗</a> · Mapa base © OpenStreetMap contributors (respaldo: Esri) · Fotografías de distritos: Wikimedia Commons (autoría y licencia bajo cada foto); los distritos sin foto verificada muestran su silueta.</div>
 </main>
 <script src="data/contratos.js"></script>
 <script>
@@ -470,6 +471,7 @@ function mixHex(a,b,t){const h=c=>[1,3,5].map(i=>parseInt(c.slice(i,i+2),16));co
 function rampColor(t){t=Math.max(0,Math.min(1,t));const s=t*(RAMP.length-1),i=Math.min(RAMP.length-2,Math.floor(s));return mixHex(RAMP[i],RAMP[i+1],s-i)}
 function districtRange(counts){const v=DISTRICTS.map(d=>counts.get(N(d))||0).filter(Boolean);return v.length?[Math.min(...v),Math.max(...v)]:[0,0]}
 function blueFill(c,counts){const [mn,mx]=districtRange(counts);return rampColor(mx===mn?.6:.06+.84*(c-mn)/(mx-mn))}
+function isDark(hex){if(!/^#[0-9a-f]{6}$/i.test(hex||''))return false;const v=[1,3,5].map(i=>parseInt(hex.slice(i,i+2),16)/255).map(c=>c<=.03928?c/12.92:Math.pow((c+.055)/1.055,2.4));return .2126*v[0]+.7152*v[1]+.0722*v[2]<.3}
 /* Proyección geográfica real (Web Mercator), alineada con las teselas del mapa base */
 const TZ=12,TW=256*Math.pow(2,TZ);
 const merc=([lon,lat])=>{const s=Math.sin(lat*Math.PI/180);return [(lon+180)/360*TW,(0.5-Math.log((1+s)/(1-s))/(4*Math.PI))*TW]};
@@ -480,8 +482,8 @@ function projectMercator(feats){
  const px=c=>{const m=merc(c);return [m[0]*s+ox,m[1]*s+oy]};
  return feats.map(f=>({...f,name:normDist(f.properties?.name||f.properties?.NOMBRE||f.properties?.distrito||''),projected:polygons(f.geometry).map(poly=>poly.map(ring=>ring.map(px)))}));
 }
-/* Fondo: mapa callejero real, sin clave de API.
-   Principal: OpenStreetMap. Si una tesela falla, se pide a Esri (World Street Map) como respaldo. */
+/* Fondo: mapa callejero real (OpenStreetMap; respaldo Esri), sin clave de API.
+   Se pasa a gris claro y se aplica un velo fuera del término municipal, para que los distritos azules destaquen. */
 const TILE_OSM=(z,x,y)=>'https://tile.openstreetmap.org/'+z+'/'+x+'/'+y+'.png';
 const TILE_ESRI=(z,x,y)=>'https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/'+z+'/'+y+'/'+x;
 const BASEZ=11,_layers={};
@@ -505,21 +507,40 @@ function background(){
  if(bgCache)return bgCache;
  const g=svg('g',{'pointer-events':'none'}),m=window._merc,mg=.18;
  const wx0=(-1550*mg-m.ox)/m.s,wx1=(1550*(1+mg)-m.ox)/m.s,wy0=(-930*mg-m.oy)/m.s,wy1=(930*(1+mg)-m.oy)/m.s;
- g.append(svg('rect',{x:-2200,y:-1400,width:5950,height:3730,fill:'#e9eef1'}));
- const sh=svg('filter',{id:'cityShadow',x:'-10%',y:'-10%',width:'120%',height:'120%'});sh.append(svg('feDropShadow',{dx:'0',dy:'2',stdDeviation:'3','flood-color':'#0d2a52','flood-opacity':'.25'}));const defs=svg('defs');defs.append(sh);g.append(defs);
- const tiles=svg('g',{});tiles.style.filter='saturate(.8) brightness(1.04)';g.append(tiles);
+ const BIG={x:-2200,y:-1400,width:5950,height:3730};
+ g.append(svg('rect',{...BIG,fill:'#eceff2'}));
+ /* Filtros: gris claro para el mapa base y sombra suave para la ciudad */
+ const defs=svg('defs');
+ const gray=svg('filter',{id:'bgGray',x:'0',y:'0',width:'100%',height:'100%','color-interpolation-filters':'sRGB'});
+ gray.append(svg('feColorMatrix',{type:'saturate',values:'0.1'}));
+ const ct=svg('feComponentTransfer');['feFuncR','feFuncG','feFuncB'].forEach(n=>ct.append(svg(n,{type:'linear',slope:'.74',intercept:'.25'})));gray.append(ct);
+ const sh=svg('filter',{id:'cityShadow',x:'-10%',y:'-10%',width:'120%',height:'120%'});sh.append(svg('feDropShadow',{dx:'0',dy:'2',stdDeviation:'3','flood-color':'#0d2a52','flood-opacity':'.25'}));
+ /* Máscara: velo en todo el mapa menos dentro de los distritos */
+ const hole=[];features.forEach(d=>{if(!DISTRICTS.includes(d.name))return;d.projected.forEach(poly=>poly.forEach(ring=>{if(ring.length)hole.push('M'+ring.map(q=>q.map(x=>x.toFixed(1)).join(',')).join('L')+'Z')}))});
+ const mask=svg('mask',{id:'cityMask',maskUnits:'userSpaceOnUse',...BIG});
+ mask.append(svg('rect',{...BIG,fill:'#fff'}),svg('path',{d:hole.join(' '),fill:'#000'}));
+ defs.append(gray,sh,mask);g.append(defs);
+ const tiles=svg('g',{filter:'url(#bgGray)'});g.append(tiles);
  [BASEZ,12,13].forEach(z=>{const lg=svg('g',{});tiles.append(lg);_layers[z]={g:lg,seen:new Set()}});
+ g.append(svg('rect',{...BIG,fill:'#f3f5f8','fill-opacity':'.62',mask:'url(#cityMask)'}));
  bgCache=g;addTiles(BASEZ,wx0,wx1,wy0,wy1);updateDetail();return g;
 }
-/* Fotografías con licencia libre, comprobadas en Wikimedia Commons. Distrito sin foto comprobada = diseño con silueta. */
+/* Fotografías de Wikimedia Commons con licencia libre. Cada una está comprobada en su página de Commons
+   (autor, licencia y lugar). Los distritos sin foto verificada muestran su silueta, no una imagen genérica. */
 const FP='https://commons.wikimedia.org/wiki/Special:FilePath/',FW='https://commons.wikimedia.org/wiki/File:';
 const PHOTOS={
  'Centro':{f:'Puerta_del_Sol_%28Madrid%29_10.jpg',lugar:'Puerta del Sol',autor:'Tomás Fano',lic:'CC BY-SA 2.0'},
  'Retiro':{f:'Palacio_de_Cristal%2C_Retiro%2C_Madrid.jpg',lugar:'Palacio de Cristal, Parque de El Retiro',autor:'vpogarcia',lic:'CC BY-SA 2.0'},
- 'Moncloa-Aravaca':{f:'El_Templo_de_Debod.JPG',lugar:'Templo de Debod',autor:'Choniron',lic:'CC BY-SA 3.0 es'},
+ 'Moncloa-Aravaca':{f:'Templo_de_Debod_in_Madrid.jpg',lugar:'Templo de Debod',autor:'jiuguangw (Flickr)',lic:'CC BY-SA 2.0'},
  'Fuencarral-El Pardo':{f:'Madrid_Cuatro_Torres_Business_Area.jpg',lugar:'Cuatro Torres Business Area',autor:'Xauxa Håkan Svensson',lic:'CC BY-SA 3.0'},
  'Arganzuela':{f:'Matadero_Madrid.jpg',lugar:'Matadero Madrid',autor:'AlesKubr2',lic:'Dominio público'},
- 'San Blas-Canillejas':{f:'Estadio_Metropolitano_%28Madrid%29_%2832023160248%29.jpg',lugar:'Estadio Metropolitano',autor:'Nicolas Vigier',lic:'CC0'}
+ 'San Blas-Canillejas':{f:'Estadio_Metropolitano_%28Madrid%29_%2832023160248%29.jpg',lugar:'Estadio Metropolitano',autor:'Nicolas Vigier',lic:'CC0'},
+ 'Chamartín':{f:'Estadio_Santiago_Bernab%C3%A9u_Madrid.jpg',lugar:'Estadio Santiago Bernabéu',autor:'Zoser',lic:'CC BY 4.0'},
+ 'Carabanchel':{f:'Plaza_de_toros_cubierta_de_Vista_Alegre_%28151295550%29.jpg',lugar:'Palacio Vistalegre',autor:'Álvaro Ibáñez',lic:'CC BY-SA 2.0'},
+ 'Barajas':{f:'Madrid_Barajas_T4_4.jpg',lugar:'Aeropuerto Adolfo Suárez Madrid-Barajas, Terminal 4',autor:'MdeVicente',lic:'CC BY-SA 4.0'},
+ 'Chamberí':{f:'Museo_Sorolla_%28Madrid%29_01.jpg',lugar:'Museo Sorolla',autor:'Luis García (Zaqarbal)',lic:'CC BY-SA 3.0'},
+ 'Salamanca':{f:'Biblioteca_Nacional_de_Espa%C3%B1a_%28Madrid%29_02.jpg',lugar:'Biblioteca Nacional de España',autor:'losmininos',lic:'CC BY-SA 2.0'},
+ 'Puente de Vallecas':{f:'Estadio_de_Vallecas.jpg',lugar:'Campo de Fútbol de Vallecas',autor:'K3T0',lic:'CC BY 2.5 es'}
 };
 let heroFor=null;
 function renderHero(d,force){
@@ -559,7 +580,7 @@ function renderSideList(){
 }
 function paintLabels(){
  const paths=[...document.querySelectorAll('#map path.district')];
- document.querySelectorAll('#map [data-district-label]').forEach(g=>{const p=paths.find(x=>x.getAttribute('aria-label').startsWith(g.dataset.districtLabel+' ·'));if(!p)return;g.querySelectorAll('text').forEach(t=>t.classList.toggle('dark',p.classList.contains('active')))});
+ document.querySelectorAll('#map [data-district-label]').forEach(g=>{const p=paths.find(x=>x.getAttribute('aria-label').startsWith(g.dataset.districtLabel+' ·'));if(!p)return;const dark=p.classList.contains('active')||isDark(p.getAttribute('fill'));g.querySelectorAll('text').forEach(t=>t.classList.toggle('dark',dark))});
  const lay=document.querySelector('#map > g[aria-label^="Mapa"]');if(lay)lay.setAttribute('filter','url(#cityShadow)');
 }
 const ADV=['unidad','grupo','parque'];
