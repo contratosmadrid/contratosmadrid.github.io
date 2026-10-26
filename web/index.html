@@ -1,0 +1,637 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>Madrid | Contratación municipal · Atlas de contratos y adjudicatarias</title>
+<style>
+:root{--navy:#0d2a52;--navy2:#163a6b;--blue:#1f4f8f;--ink:#16243a;--sub:#5d6b7e;--mute:#8a96a6;--line:#e1e6ec;--line2:#eef1f5;--bg:#f3f5f8;--card:#fff;--gold:#c58a1c;--gold-l:#fdf3e1;--focus:rgba(31,79,143,.16);--r:12px;--sh:0 1px 2px rgba(13,42,82,.04),0 6px 18px rgba(13,42,82,.05)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;font-family:"Segoe UI",Inter,system-ui,-apple-system,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);font-size:14px;line-height:1.45;-webkit-font-smoothing:antialiased}
+button,input,select{font:inherit;color:inherit}.hide{display:none!important}:focus-visible{outline:2px solid var(--blue);outline-offset:2px}
+/* Cabecera */
+.top{position:sticky;top:0;z-index:30;background:var(--navy);color:#fff;display:flex;align-items:center;gap:22px;padding:0 clamp(14px,2vw,32px);height:64px;box-shadow:0 2px 10px rgba(5,20,45,.22)}
+.logo{display:flex;align-items:center;gap:12px;padding-right:20px;border-right:1px solid rgba(255,255,255,.22);height:38px}
+.logo svg{width:28px;height:32px}.logo b{font-size:23px;letter-spacing:.07em;font-weight:600}
+.brand strong{display:block;font-size:18px;font-weight:600;line-height:1.15;white-space:nowrap}.brand span{display:block;font-size:12.5px;color:#c6d3e6;white-space:nowrap}
+.nav{display:flex;gap:2px;margin-left:auto;height:100%}
+.nav a{display:flex;align-items:center;padding:0 14px;color:#d5deeb;text-decoration:none;font-weight:500;border-bottom:3px solid transparent}
+.nav a:hover{color:#fff}.nav a.on{color:#fff;border-bottom-color:#fff}
+.top-btn{border:1px solid rgba(255,255,255,.45);background:transparent;color:#fff;border-radius:8px;padding:8px 14px;font-weight:600;cursor:pointer;white-space:nowrap}.top-btn:hover{background:rgba(255,255,255,.1)}
+.wrap{max-width:2400px;margin:auto;padding:16px clamp(12px,1.6vw,26px) 26px}
+/* KPIs */
+.kpis{display:grid;grid-template-columns:repeat(5,minmax(0,1fr)) minmax(260px,1.3fr);gap:12px;margin-bottom:14px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:13px 16px;display:flex;align-items:center;gap:14px;min-width:0;box-shadow:var(--sh)}
+.kpi .ic{width:42px;height:42px;border-radius:10px;background:#eef3fa;display:grid;place-items:center;flex-shrink:0}
+.kpi svg{width:24px;height:24px;fill:none;stroke:var(--navy2);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.kpi b{display:block;font-size:26px;font-weight:650;line-height:1.05;font-variant-numeric:tabular-nums}
+.kpi span{display:block;font-size:13px}.kpi em{display:block;font-style:normal;font-size:11.5px;color:var(--mute);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.kpi.info{background:#e9eff7;border-color:#d6e0ee;font-size:12.5px;color:#33475f}
+.kpi.info i{width:32px;height:32px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-style:normal;font-weight:700;flex-shrink:0;font-family:Georgia,serif}
+/* Accesos rápidos */
+.quickbar{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:10px 14px;margin-bottom:14px;box-shadow:var(--sh);overflow:hidden}
+.quickbar>span{font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--mute);white-space:nowrap}
+.quick{display:flex;gap:8px;overflow-x:auto;scrollbar-width:thin;padding:2px 0}
+.quick button{display:inline-flex;align-items:center;gap:7px;border:1px solid #d5dde8;background:#fff;border-radius:999px;padding:6px 13px 6px 8px;font-size:12.5px;font-weight:600;cursor:pointer;color:#2c3e57;white-space:nowrap;transition:background .15s,border-color .15s,color .15s}
+.quick button i{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:#eef3fa}.quick button i svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.quick button:hover{border-color:var(--blue);color:var(--blue)}
+.quick button.active{background:var(--navy2);border-color:var(--navy2);color:#fff}.quick button.active i{background:rgba(255,255,255,.18)}
+/* Rejilla */
+.grid{display:grid;grid-template-columns:300px minmax(0,1fr) 390px;gap:14px;align-items:start}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh);min-width:0}
+/* Filtros */
+.side{position:sticky;top:78px;max-height:calc(100vh - 90px);overflow:auto;padding:16px;scrollbar-width:thin}
+.side-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.side-head h2{margin:0;font-size:18px;font-weight:650}
+.reset{border:0;background:none;color:var(--blue);font-weight:600;cursor:pointer;font-size:13px;padding:4px 0}.reset:hover{text-decoration:underline}
+.applied{font-size:12px;color:var(--sub);background:#f5f7fa;border:1px solid var(--line2);border-radius:8px;padding:7px 9px;margin-bottom:12px}
+.applied.on{background:var(--gold-l);border-color:#f1dcb1;color:#6d4a0b;font-weight:600}
+.field{margin-bottom:11px}
+.field label{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;margin-bottom:5px}
+.field label svg{width:15px;height:15px;fill:none;stroke:var(--navy2);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.field select,.field input{width:100%;height:36px;border:1px solid #cdd5df;border-radius:8px;background:#fff;padding:0 10px;font-size:13px;outline:none;min-width:0}
+.field select{appearance:none;-webkit-appearance:none;padding-right:28px;background-image:linear-gradient(45deg,transparent 50%,#4b5a6d 50%),linear-gradient(135deg,#4b5a6d 50%,transparent 50%);background-position:calc(100% - 15px) 15px,calc(100% - 10px) 15px;background-size:5px 5px;background-repeat:no-repeat;text-overflow:ellipsis;cursor:pointer}
+.field select:focus,.field input:focus{border-color:var(--blue);box-shadow:0 0 0 3px var(--focus)}
+.field select.set{border-color:var(--blue);background-color:#eef3fa;font-weight:600;color:var(--navy)}
+.search-box{position:relative}.search-box svg{position:absolute;left:10px;top:10px;width:16px;height:16px;fill:none;stroke:var(--mute);stroke-width:2}.search-box input{padding-left:33px}
+.search-box input.set{border-color:var(--blue);background:#eef3fa}
+.adv{border:1px solid var(--line);border-radius:10px;margin-top:6px;overflow:hidden}
+.adv summary{list-style:none;display:flex;justify-content:space-between;align-items:center;padding:10px 12px;cursor:pointer;font-weight:600;font-size:13px;background:#f7f9fc}
+.adv summary::-webkit-details-marker{display:none}
+.adv summary b{background:var(--gold);color:#fff;border-radius:9px;padding:0 7px;font-size:11px;margin-left:6px}
+.adv summary::after{content:'⌄';font-size:16px;line-height:8px;color:var(--sub)}.adv[open] summary::after{transform:rotate(180deg)}
+.adv .adv-body{padding:12px 12px 2px}
+.adv-note{font-size:11.5px;color:var(--mute);margin:-4px 0 10px}
+/* Mapa */
+.map-card{overflow:hidden;display:flex;flex-direction:column}
+.map-stage{position:relative;height:clamp(560px,calc(100vh - 290px),980px);min-height:560px;background:#e3ead9;overflow:hidden}
+.map-stage svg{display:block;width:100%;height:100%;touch-action:none;cursor:grab;user-select:none}
+.map-stage svg.grabbing{cursor:grabbing}.map-stage:fullscreen{height:100vh}
+.map-title{position:absolute;left:16px;top:16px;z-index:3;background:rgba(255,255,255,.95);border:1px solid var(--line);border-radius:10px;padding:12px 16px;box-shadow:0 4px 14px rgba(13,42,82,.1);max-width:360px}
+.map-title h2{margin:0 0 3px;font-size:18px;font-weight:650}.map-title p{margin:0 0 9px;font-size:12px;color:var(--sub)}
+.views{display:inline-flex;background:#eef2f7;border-radius:8px;padding:3px;gap:2px}
+.views button{border:0;background:transparent;border-radius:6px;padding:5px 10px;font-size:12px;font-weight:600;color:var(--sub);cursor:pointer}
+.views button.on{background:#fff;color:var(--navy);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.map-ctrl{position:absolute;right:14px;top:14px;z-index:3;display:flex;flex-direction:column;gap:8px}
+.north{width:40px;height:44px;background:rgba(255,255,255,.95);border:1px solid var(--line);border-radius:8px;display:grid;place-items:center;font-size:10px;font-weight:700}
+.north svg{width:14px;height:18px}
+.zoom{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:8px;overflow:hidden;box-shadow:0 2px 8px rgba(13,42,82,.08)}
+.zoom button{width:40px;height:38px;border:0;border-bottom:1px solid var(--line);background:#fff;cursor:pointer;font-size:20px;display:grid;place-items:center}
+.zoom button:last-child{border-bottom:0}.zoom button:hover{background:#f1f5fa}.zoom svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+.legend{position:absolute;left:16px;bottom:16px;z-index:3;background:rgba(255,255,255,.96);border:1px solid var(--line);border-radius:10px;padding:10px 13px;box-shadow:0 4px 14px rgba(13,42,82,.08);font-size:12px}
+.legend b{display:block;font-weight:600;margin-bottom:6px}.legend .bar{width:190px;height:10px;border-radius:2px;background:linear-gradient(90deg,#d6e3f2,#8fb0d8,#3f6fae,#0d2a52)}
+.legend .ticks{display:flex;justify-content:space-between;color:var(--sub);margin-top:3px;font-variant-numeric:tabular-nums}
+.legend .k{display:flex;align-items:center;gap:6px;margin-top:5px;color:var(--sub)}.legend .k i{width:16px;height:11px;border-radius:2px}
+.attr{position:absolute;right:8px;bottom:6px;z-index:3;font-size:10.5px;color:#4b5a6d;background:rgba(255,255,255,.8);padding:1px 6px;border-radius:4px}
+.attr a{color:inherit}
+.map-wait{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#fff;border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:8px;padding:16px 18px;max-width:420px;width:85%;text-align:center;color:var(--sub);font-size:13px;z-index:4}
+.map-tip{position:absolute;z-index:5;background:var(--navy);color:#fff;padding:8px 11px;border-radius:6px;font-size:12.5px;pointer-events:none;box-shadow:0 8px 22px rgba(0,0,0,.25);white-space:nowrap}
+.map-meta{display:flex;justify-content:space-between;gap:10px;padding:8px 16px;border-top:1px solid var(--line2);font-size:11.5px;color:var(--sub);flex-wrap:wrap}
+.district{stroke:#fff;stroke-width:1.6;stroke-linejoin:round;cursor:pointer;transition:fill .25s,opacity .2s}
+.district:hover{stroke:var(--navy);stroke-width:2.6}
+.district.active{stroke:#071a36;stroke-width:4;filter:drop-shadow(0 4px 8px rgba(7,26,54,.45))}
+.geo .district{fill-opacity:.62;stroke:#0d2a52;stroke-width:1.4}.geo .district.active{fill-opacity:.8;stroke-width:4}
+.district-label{font-weight:600;fill:#0e2240;stroke:rgba(255,255,255,.88);stroke-width:3px;paint-order:stroke;stroke-linejoin:round;pointer-events:none;text-anchor:middle}
+.district-label.dark{fill:#fff;stroke:rgba(7,26,54,.5)}
+/* Panel derecho */
+.right{position:sticky;top:78px;max-height:calc(100vh - 90px);display:flex;flex-direction:column;gap:12px}
+.dcard{overflow:hidden}
+.hero{position:relative;height:150px;background:linear-gradient(135deg,#0d2a52 0%,#1f4f8f 60%,#3f6fae 100%);color:#fff;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(circle at 85% 20%,rgba(255,255,255,.14) 0 60px,transparent 61px),radial-gradient(circle at 95% 95%,rgba(255,255,255,.08) 0 90px,transparent 91px),linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:auto,auto,22px 22px,22px 22px}
+.hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero.has-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,26,54,.05) 30%,rgba(7,26,54,.78) 100%)}
+.hero .hx{position:absolute;left:16px;right:16px;bottom:12px;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;gap:10px}
+.hero small{display:block;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;opacity:.85;font-weight:600}
+.hero h2{margin:0;font-size:25px;font-weight:650;line-height:1.1;text-shadow:0 1px 3px rgba(0,0,0,.25)}
+.hero .num{position:absolute;right:14px;top:6px;z-index:1;font-size:64px;font-weight:700;opacity:.12;line-height:1}
+.hero.has-photo .num{display:none}
+.hero button{border:1px solid rgba(255,255,255,.6);background:rgba(7,26,54,.35);color:#fff;border-radius:7px;padding:5px 9px;font-size:12px;font-weight:600;cursor:pointer;white-space:nowrap;backdrop-filter:blur(4px)}
+.credit{position:absolute;right:8px;top:6px;z-index:2;font-size:10px;color:#fff;background:rgba(0,0,0,.4);padding:1px 6px;border-radius:4px;text-decoration:none}
+.photo-cap{font-size:11px;color:var(--mute);padding:6px 16px 0}
+.dbody{padding:12px 16px 16px}
+.dstats{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.dstats div{padding:9px 12px;border-right:1px solid var(--line)}.dstats div:last-child{border-right:0}
+.dstats b{display:block;font-size:22px;color:var(--navy2);font-weight:650;line-height:1.1}.dstats span{font-size:12px;color:var(--sub)}
+.topserv{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px}
+.topserv span{font-size:11.5px;background:#eef3fa;color:var(--navy2);border-radius:999px;padding:3px 9px;font-weight:600}
+#district-panel select{width:100%;height:36px;border:1px solid var(--blue);border-radius:8px;background:#fff;padding:0 8px;font-size:12.5px;margin-top:10px;color:var(--navy);font-weight:600}
+.dcard{flex-shrink:0}
+.lcard{display:flex;flex-direction:column;min-height:0;flex:1;overflow:hidden}
+.lhead{padding:13px 16px 10px;border-bottom:1px solid var(--line2)}
+.lhead h3{margin:0 0 8px;font-size:15.5px;font-weight:650}
+.lhead input{width:100%;height:34px;border:1px solid #cdd5df;border-radius:8px;padding:0 10px;font-size:12.5px;outline:none}
+.lhead input:focus{border-color:var(--blue);box-shadow:0 0 0 3px var(--focus)}
+.clist{overflow:auto;padding:10px 12px;display:flex;flex-direction:column;gap:8px;scrollbar-width:thin;flex:1;min-height:160px}
+.citem{display:grid;grid-template-columns:minmax(0,1fr) 14px;gap:8px;align-items:center;text-align:left;width:100%;border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:9px;background:#fff;padding:10px 11px;cursor:pointer;transition:box-shadow .15s}
+.citem:hover{box-shadow:0 4px 12px rgba(13,42,82,.1)}
+.citem .t{display:flex;justify-content:space-between;gap:8px;align-items:flex-start}
+.citem .t b{font-size:13px;font-weight:600;line-height:1.3}
+.citem .tag{flex-shrink:0;font-size:10.5px;background:#e7eef8;color:var(--navy2);border-radius:4px;padding:2px 6px;font-weight:600;max-width:120px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.citem .m{display:block;font-size:12px;color:var(--sub);margin-top:3px}
+.citem .e{display:block;font-size:12.5px;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.citem .chev{color:var(--mute);font-size:18px}
+.lfoot{padding:10px 12px;border-top:1px solid var(--line2)}
+.lfoot a{display:flex;justify-content:center;border:1px solid #cfd8e3;border-radius:8px;padding:9px;color:var(--navy);font-weight:600;text-decoration:none}
+.lfoot a:hover{border-color:var(--blue);background:#f5f8fc}
+.empty{color:var(--sub);font-size:13px;padding:16px;text-align:center}
+/* Ámbito y fichas */
+.bottom{display:flex;align-items:center;gap:14px;margin-top:14px;padding:12px 16px;flex-wrap:wrap}
+.bottom .ico{width:38px;height:38px;border-radius:50%;background:var(--navy2);display:grid;place-items:center;flex-shrink:0}.bottom .ico svg{width:20px;height:20px;fill:none;stroke:#fff;stroke-width:1.8}
+.bottom strong{display:block;font-size:14.5px}.bottom span{font-size:12.5px;color:var(--sub)}.bottom .grow{flex:1;min-width:200px}
+.btn{border:1px solid #cfd8e3;background:#fff;border-radius:8px;padding:9px 14px;font-weight:600;cursor:pointer;color:var(--navy);white-space:nowrap}
+.btn:hover{border-color:var(--blue);background:#f5f8fc}.btn.on{background:var(--navy2);border-color:var(--navy2);color:#fff}
+.data-card{margin-top:14px;overflow:hidden;scroll-margin-top:80px}
+.data-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:15px 18px;border-bottom:1px solid var(--line2);flex-wrap:wrap}
+.data-head h2{margin:0;font-size:19px;font-weight:650}.data-head p{margin:2px 0 0;font-size:12.5px;color:var(--sub)}
+.results{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:12px;padding:16px 18px;background:#f8f9fb;align-items:start}
+.result{background:#fff;border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:9px;overflow:hidden}
+.result:has(.contract-detail[open]){grid-column:1/-1;border-color:#b9c8dc;border-left-color:var(--navy2)}
+.result.result-focus{outline:3px solid var(--gold);outline-offset:2px}
+.contract-summary{list-style:none;display:flex;justify-content:space-between;align-items:center;gap:12px;padding:13px 14px;cursor:pointer;min-height:78px}
+.contract-summary::-webkit-details-marker{display:none}.contract-summary::marker{content:''}.contract-summary:hover{background:#f6f8fb}
+.contract-summary-main{flex:1;min-width:0}
+.result-title{font-size:14px;font-weight:600;line-height:1.35;margin-bottom:4px}.result-meta{font-size:12px;color:var(--sub)}
+.expand-label{display:inline-flex;align-items:center;gap:6px;flex-shrink:0;background:#e7eef8;color:var(--navy2);border-radius:6px;padding:5px 10px;font-size:12px;font-weight:600}
+.expand-label::after{content:'⌄';font-size:16px;line-height:8px}
+.contract-detail[open] .expand-label::after{transform:rotate(180deg)}
+.contract-detail[open] .expand-label-text{display:none}.contract-detail[open] .expand-label::before{content:'Cerrar'}
+.contract-body{border-top:1px solid var(--line2);padding:14px;background:#fbfcfd}
+.contract-fields{margin:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.contract-field{background:#fff;border:1px solid var(--line2);border-radius:6px;padding:8px 11px;min-width:0}
+.contract-field.wide{grid-column:1/-1}
+.contract-field dt{font-size:10.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--mute);font-weight:700;margin-bottom:2px}
+.contract-field dd{margin:0;font-size:13px;overflow-wrap:anywhere;white-space:pre-wrap}
+.source-title{font-size:10.5px;text-transform:uppercase;letter-spacing:.08em;color:var(--mute);font-weight:700;margin:14px 0 7px}
+.source-links{display:flex;flex-wrap:wrap;gap:7px}
+.source-links a{background:#e7eef8;color:var(--navy2);border-radius:6px;padding:6px 11px;font-size:12px;font-weight:600;text-decoration:none}.source-links a:hover{background:var(--navy2);color:#fff}
+.more{display:block;width:calc(100% - 36px);margin:0 18px 18px;padding:10px;border:1px solid #cfd8e3;border-radius:8px;background:#fff;color:var(--navy);font-weight:600;cursor:pointer}
+.foot{margin-top:14px;font-size:11.5px;color:var(--sub);line-height:1.6}.foot a{color:var(--blue);font-weight:600}
+@media (max-width:1500px){.grid{grid-template-columns:280px minmax(0,1fr) 340px}.kpis{grid-template-columns:repeat(5,minmax(0,1fr))}.kpi.info{display:none}}
+@media (max-width:1200px){.grid{grid-template-columns:270px minmax(0,1fr)}.right{grid-column:1/-1;position:static;max-height:none;display:grid;grid-template-columns:1fr 1.4fr}.lcard{max-height:520px}.nav{display:none}}
+@media (max-width:860px){.top{height:auto;padding:10px 12px;flex-wrap:wrap;gap:10px}.logo{border:0;padding:0}.brand span{display:none}.top-btn{margin-left:auto}
+ .kpis{grid-template-columns:repeat(2,1fr)}.kpi:nth-child(5){grid-column:1/-1}
+ .grid{grid-template-columns:1fr}.side{position:static;max-height:none}.right{grid-template-columns:1fr}
+ .map-stage{height:72vh;min-height:440px}.map-title{max-width:calc(100% - 80px);padding:9px 11px}.map-title h2{font-size:16px}.map-title p{display:none}
+ .legend{padding:7px 9px}.legend .bar{width:130px}.contract-fields{grid-template-columns:1fr 1fr}.results{grid-template-columns:1fr;padding:12px}}
+@media (max-width:480px){.logo b{font-size:19px}.brand strong{font-size:15px}.contract-fields{grid-template-columns:1fr}.kpi b{font-size:22px}.legend .k{display:none}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+
+/* ---- Mejoras v3 ---- */
+.logo{gap:0}.logo-pill{display:flex;align-items:center;background:#fff;border-radius:8px;padding:3px 8px;height:44px}
+.logo-pill img{height:38px;width:auto;display:block}.logo-fb{display:flex;align-items:center;gap:12px}
+.plazos{background:var(--card);border:1px solid var(--line);border-radius:var(--r);box-shadow:var(--sh);padding:12px 14px;margin-bottom:14px}
+.pz-head h2{margin:0;font-size:15px;font-weight:650}.pz-head p{margin:2px 0 10px;font-size:12px;color:var(--sub)}
+.pz-btns{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+.pz{position:relative;display:flex;align-items:center;gap:12px;text-align:left;border:1px solid var(--line);border-radius:10px;background:#fff;padding:10px 12px 14px;cursor:pointer;overflow:hidden;transition:box-shadow .15s,border-color .15s}
+.pz:hover:not(:disabled){box-shadow:0 4px 12px rgba(13,42,82,.1)}.pz:disabled{opacity:.5;cursor:default}
+.pz b{font-size:26px;font-weight:700;line-height:1;min-width:34px;font-variant-numeric:tabular-nums}
+.pz strong{display:block;font-size:13px;font-weight:600;line-height:1.25}.pz em{display:block;font-style:normal;font-size:11.5px;color:var(--mute)}
+.pz i{position:absolute;left:0;bottom:0;height:4px;border-radius:0 2px 2px 0;transition:width .3s}
+.pz-pasado b{color:#9a3412}.pz-pasado i{background:#ea580c}.pz-m12 b{color:#b45309}.pz-m12 i{background:#f59e0b}
+.pz-m24 b{color:#1f4f8f}.pz-m24 i{background:#3f6fae}.pz-mas b{color:#166534}.pz-mas i{background:#22a06b}.pz-sin b{color:#5d6b7e}.pz-sin i{background:#98a2b3}
+.pz.on{border-color:var(--navy2);box-shadow:inset 0 0 0 2px var(--navy2);background:#f3f7fd}
+.amb-sw{background:repeating-linear-gradient(45deg,#c9d9ee 0 3px,#f2f6fb 3px 6px);border:1px solid #9fb6d6}
+.amb-badge{position:absolute;left:50%;transform:translateX(-50%);bottom:16px;z-index:3;background:rgba(13,42,82,.92);color:#fff;border-radius:999px;padding:7px 14px;font-size:12.5px;box-shadow:0 6px 16px rgba(0,0,0,.2);max-width:calc(100% - 420px);text-align:center}
+.district.amb{stroke:#5f86bd;stroke-width:1.4}
+@media (max-width:1300px){.pz-btns{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:860px){.pz-btns{grid-template-columns:repeat(2,minmax(0,1fr))}.amb-badge{max-width:calc(100% - 24px);bottom:auto;top:12px}}
+</style></head>
+<body>
+<header class="top">
+ <div class="logo"><span class="logo-pill hide" id="logoPill"><img id="logoImg" alt="Ayuntamiento de Madrid"></span><span id="logoFallback" class="logo-fb"><svg viewBox="0 0 30 34" aria-hidden="true"><path d="M3 7h24v13c0 7-6 11-12 13C9 31 3 27 3 20z" fill="none" stroke="#fff" stroke-width="1.8"/><path d="M6 2l3 3 3-3 3 3 3-3 3 3 3-3v4H6z" fill="#fff"/><path d="M9 25c2-6 3-9 6-12 3 3 4 6 6 12" fill="none" stroke="#fff" stroke-width="1.6"/></svg><b>MADRID</b></span></div>
+ <div class="brand"><strong>Contratación municipal</strong><span>Atlas de contratos y adjudicatarias</span></div>
+ <nav class="nav" aria-label="Secciones"><a href="#mapa" class="on">Mapa</a><a href="#fichas">Contratos</a></nav>
+ <button class="top-btn" id="topCsv" type="button">↓ Exportar CSV</button>
+</header>
+<main class="wrap">
+ <section class="kpis" aria-label="Indicadores de la selección">
+  <div class="kpi"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 7h6l2 2h10v10H3z"/></svg></div><div><b id="count-exp">67</b><span>Expedientes</span><em id="kExpS">contratos y lotes</em></div></div>
+  <div class="kpi"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="2.5"/><circle cx="5" cy="18" r="2.5"/><circle cx="19" cy="18" r="2.5"/><path d="M11 7l-5 9M13 7l5 9M7.5 18h9"/></svg></div><div><b id="count-rel">492</b><span>Relaciones</span><em>contrato – distrito</em></div></div>
+  <div class="kpi"><div class="ic"><svg viewBox="0 0 24 24"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2zM9 4v14M15 6v14"/></svg></div><div><b id="kDis">21</b><span>Distritos</span><em>con contratos en la selección</em></div></div>
+  <div class="kpi"><div class="ic"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-4 3-6 6-6s6 2 6 6"/><circle cx="17" cy="9" r="2.4"/><path d="M15.5 14c3 0 5.5 1.6 5.5 5"/></svg></div><div><b id="kEmp">—</b><span>Empresas / UTE</span><em>adjudicatarias</em></div></div>
+  <div class="kpi"><div class="ic"><svg viewBox="0 0 24 24"><path d="M4 21V5l7-2v18M11 9h9v12M7 8h1M7 12h1M7 16h1M14 13h2M14 17h2"/></svg></div><div><b id="kGru">—</b><span>Grupos empresariales</span><em>claves de consulta</em></div></div>
+  <div class="kpi info"><i>i</i><div>Contratos municipales de servicios urbanos e infraestructuras del Ayuntamiento de Madrid. <span id="dataStamp">Datos del Excel maestro.</span></div></div>
+ </section>
+
+ <section class="plazos" aria-label="Vencimiento de los contratos">
+  <div class="pz-head"><div><h2>Vencimiento de los contratos</h2><p><span id="plazoTot">–</span> · según la fecha de fin registrada en el Excel · referencia: hoy <span id="plazoRef"></span> · pulsa una tarjeta para filtrar</p></div></div>
+  <div class="pz-btns" id="plazoBtns"></div>
+ </section>
+
+ <section class="quickbar" aria-label="Accesos rápidos"><span>Accesos rápidos</span><div class="quick" id="quicks"></div></section>
+
+ <div class="grid">
+  <aside class="card side" aria-label="Filtros">
+   <div class="side-head"><h2>Filtros</h2><button class="reset" id="limpiar" type="button">↻ Limpiar filtros</button></div>
+   <div class="applied" id="applied">Sin filtros activos</div>
+   <div class="field search-box"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg><input id="buscar" type="search" placeholder="Buscar: Acciona, Casa de Campo, 300/2026…" aria-label="Búsqueda libre (nombre, expediente, adjudicatario)"></div>
+   <div class="field"><label for="distrito"><svg viewBox="0 0 24 24"><path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2zM9 4v14M15 6v14"/></svg>Distrito</label><select id="distrito"></select></div>
+   <div class="field"><label for="area"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6"/></svg>Área de gobierno</label><select id="area"></select></div>
+   <div class="field"><label for="servicio"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-4 8-8 9-4-1-8-4-8-9V6z"/></svg>Tipo de servicio</label><select id="servicio"></select></div>
+   <div class="field"><label for="direccion"><svg viewBox="0 0 24 24"><path d="M4 21V4h11v17M15 9h5v12M7 8h2M7 12h2M7 16h2"/></svg>Dirección General</label><select id="direccion"></select></div>
+   <div class="field"><label for="empresa"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-4 3-6.5 7-6.5s7 2.5 7 6.5"/></svg>Empresa / UTE</label><select id="empresa"></select></div>
+   <div class="field"><label for="contrato"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6zM14 3v5h5M9 12h7M9 16h7"/></svg>Contrato específico</label><select id="contrato"></select></div>
+   <details class="adv" id="adv"><summary><span>Más filtros<b id="advN" class="hide">0</b></span></summary><div class="adv-body">
+    <p class="adv-note">Filtros menos usados. Siguen conectados con los principales.</p>
+    <div class="field"><label for="unidad"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h13"/></svg>Subdirección General</label><select id="unidad"></select></div>
+    <div class="field"><label for="grupo"><svg viewBox="0 0 24 24"><circle cx="8" cy="9" r="2.6"/><circle cx="16" cy="9" r="2.6"/><path d="M3 19c0-3 2.3-5 5-5s5 2 5 5M11 19c0-3 2.3-5 5-5s5 2 5 5"/></svg>Grupo empresarial</label><select id="grupo"></select></div>
+    <div class="field"><label for="parque"><svg viewBox="0 0 24 24"><path d="M12 3c3 3 5 6 5 9a5 5 0 0 1-10 0c0-3 2-6 5-9zM12 17v4"/></svg>Parque / contrato integral</label><select id="parque"></select></div>
+   </div></details>
+  </aside>
+
+  <section class="card map-card" id="mapa">
+   <div class="map-stage" id="map-stage">
+    <svg id="map" viewBox="-130 -150 1810 1086" role="img" aria-label="Mapa interactivo de los 21 distritos de Madrid"></svg>
+    <div class="map-title"><h2>Los 21 distritos de Madrid</h2><p>Haz clic en un distrito para ver sus contratos; vuelve a pulsarlo para quitar la selección.</p>
+     <div class="views" role="group" aria-label="Vista del mapa"><button type="button" class="on" data-view="carto" aria-pressed="true">Vista esquemática</button><button type="button" data-view="geo" aria-pressed="false">Vista geográfica</button></div></div>
+    <div class="map-ctrl">
+     <div class="north" aria-hidden="true">N<svg viewBox="0 0 14 18"><path d="M7 0l6 18-6-5-6 5z" fill="#16243a"/></svg></div>
+     <div class="zoom"><button id="zoomIn" title="Acercar" aria-label="Acercar">+</button><button id="zoomOut" title="Alejar" aria-label="Alejar">−</button><button id="zoomFit" title="Encajar el mapa" aria-label="Encajar el mapa"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg></button><button id="full" title="Pantalla completa" aria-label="Pantalla completa"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button></div>
+    </div>
+    <div class="legend"><b>Relaciones contrato – distrito</b><div class="bar"></div><div class="ticks"><span id="lgMin">–</span><span id="lgMid"></span><span id="lgMax">–</span></div><div class="k"><i style="background:#eef1f4;border:1px solid #c9d1db"></i>Sin contratos con estos filtros</div><div class="k"><i style="background:#123d7a;border:2px solid #0d2a52"></i>Distrito seleccionado</div><div class="k" id="lgAmb"><i class="amb-sw"></i>Cubierto solo por contratos de ámbito municipal</div></div>
+    <div class="attr hide" id="attr">© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> · © <a href="https://carto.com/attributions" target="_blank" rel="noopener">CARTO</a></div>
+    <div class="amb-badge hide" id="ambBadge"></div>
+    <div class="map-wait" id="map-status">Cargando límites geográficos de Madrid…</div>
+    <div class="map-tip hide" id="tip"></div>
+   </div>
+   <div class="map-meta"><span id="viewNote"><b>Vista esquemática</b> · zonas centrales ampliadas para facilitar la lectura · no a escala</span><span id="source">Límites de distritos de Madrid</span></div>
+  </section>
+
+  <aside class="right">
+   <div class="card dcard">
+    <div class="hero" id="hero"><span class="num" id="dNum"></span><div class="hx"><div><small id="dKicker">Vista general</small><h2 id="dTitle">Toda la ciudad</h2></div><button type="button" id="dClear" class="hide">✕ Quitar</button></div></div>
+    <div class="photo-cap hide" id="photoCap"></div>
+    <div class="dbody">
+     <div class="dstats"><div><b id="dRel">–</b><span>relaciones</span></div><div><b id="dExp">–</b><span>expedientes</span></div><div><b id="dEmp">–</b><span>empresas / UTE</span></div></div>
+     <div class="topserv" id="topServ"></div>
+     <div id="district-panel" class="hide"><div class="hide"><strong id="district-panel-title"></strong><button type="button" id="district-clear">✕</button></div><select id="district-contracts" aria-label="Contratos de este distrito"><option value="">Selecciona un contrato para consultar su ficha...</option></select><span id="district-contract-count" class="hide"></span></div>
+    </div>
+   </div>
+   <div class="card lcard">
+    <div class="lhead"><h3 id="lTitle">Contratos de la selección</h3><input id="lFilter" type="search" placeholder="Buscar en esta lista…" aria-label="Buscar en la lista de contratos"></div>
+    <div class="clist" id="clist"></div>
+    <div class="lfoot"><a href="#fichas" id="lAll">Ver todas las fichas →</a></div>
+   </div>
+  </aside>
+ </div>
+
+ <section class="card bottom" aria-label="Ámbito municipal">
+  <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V10l7-5 7 5v11M9 21v-6h6v6"/></svg></div>
+  <div class="grow"><strong>Ámbito municipal (sin distrito concreto)</strong><span id="ambitoTxt">–</span></div>
+  <button class="btn" type="button" id="ambitoBtn">Ver contratos de ámbito municipal →</button>
+ </section>
+
+ <section class="card data-card" id="fichas">
+  <div class="data-head"><div><h2 id="result-title">Contratos encontrados</h2><p id="result-sub">Aplica filtros o selecciona un distrito en el mapa.</p></div><button class="btn" id="download" type="button">↓ Descargar resultados CSV</button></div>
+  <div class="results" id="results"></div><button class="more hide" id="more">Ver más resultados</button>
+ </section>
+ <div class="foot">Inventario documental generado automáticamente desde el Excel maestro (<span id="dataStamp2">–</span>), no consulta en tiempo real. Un mismo expediente puede figurar en varios distritos o lotes. Las fuentes y fechas deben consultarse en la documentación enlazada. <a target="_blank" rel="noopener" href="https://datos.madrid.es/dataset/900012-0-limites-administrativos-mapas">Fuente cartográfica municipal ↗</a> · Fotografías de distritos: Wikimedia Commons (licencias libres, autoría en cada enlace).</div>
+</main>
+<script src="data/contratos.js"></script>
+<script>
+'use strict';
+const RECORDS=(window.MADRID_DATA&&window.MADRID_DATA.records)||[];
+const DISTRICTS=['Centro','Arganzuela','Retiro','Salamanca','Chamartín','Tetuán','Chamberí','Fuencarral-El Pardo','Moncloa-Aravaca','Latina','Carabanchel','Usera','Puente de Vallecas','Moratalaz','Ciudad Lineal','Hortaleza','Villaverde','Villa de Vallecas','Vicálvaro','San Blas-Canillejas','Barajas'];
+const GEO_URLS=['data/madrid-districts.geojson','https://cdn.jsdelivr.net/gh/codeforgermany/click_that_hood@main/public/data/madrid-districts.geojson','https://raw.githubusercontent.com/codeforgermany/click_that_hood/main/public/data/madrid-districts.geojson'];
+const $=id=>document.getElementById(id);const N=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase().replace(/[^a-z0-9]+/g,' ').trim();
+const FIELDS=['distrito','area','direccion','unidad','grupo','empresa','servicio','parque','contrato'];let activeQuick='',features=[],geoReady=false,page=0,base={x:-130,y:-150,w:1810,h:1086},zoom=1,drag=null,view={...base};
+const QUICK=[['','Todos'],['integral','Contratos integrales'],['retiro','El Retiro y Casa de Campo'],['residuos','Residuos'],['zonas','Zonas verdes'],['obras','Pavimentos e infraestructuras'],['instalaciones','Instalaciones urbanas'],['movilidad','Tráfico y taxis'],['ambiental','Sostenibilidad y medio ambiente'],['tecnologia','Tecnología'],['acciona','Acciona']];
+const PARKS=['El Retiro','Casa de Campo','Madrid Río','Parque del Oeste','Juan Carlos I','El Capricho','Parques integrales'];
+const PAL=['#bddccf','#8bc7b8','#d0e2b1','#7fb8cd','#9bc9e4','#f0dbb8','#b7b9db','#aad8d8','#e1c2cb','#bed1aa','#e7cbac','#a8cde8','#b9d1d9','#abcab9','#b0d5d0','#d9c9a9','#c5d9e9','#d2ded0','#bcbacb','#adc6b2','#d1e2ce'];
+const grps=r=>String(r.grupos||'').split('|').map(x=>x.trim()).filter(x=>x&&!/sin grupo acreditado|grupo no acreditado/i.test(x));
+const parkMatch=(r,p)=>{if(!p)return true;const txt=N([r.contrato,r.prestacion,r.cobertura,r.excepciones].join(' '));return p==='Parques integrales'?txt.includes('integral')&&/parqu|jardin/.test(txt):txt.includes(N(p))};
+const quickMatch=r=>{if(!activeQuick)return true;const s=N([r.servicio,r.contrato,r.prestacion,r.cobertura,r.excepciones].join(' '));switch(activeQuick){case 'integral':return s.includes('integral');case 'retiro':return s.includes('retiro')||s.includes('casa de campo');case 'residuos':return /residu|basura|recicl|valdemingomez/.test(s);case 'zonas':return /zona verde|arbol|jardin|parqu|vivero/.test(s);case 'obras':return /paviment|infraestructura|estructura|via public|obra|puente/.test(s);case 'instalaciones':return /instalacion|ilumin|alumbr|electric|energia/.test(s);case 'movilidad':return /trafico|taxi|circulacion|movilidad/.test(s);case 'ambiental':return /sostenib|ambient|aire|clima|energ/.test(s);case 'tecnologia':return /tecnolog|digital|informat|gamificacion|sensor/.test(s);case 'acciona':return N(r.empresa+' '+r.grupos).includes('acciona');default:return true}};
+const selected=()=>Object.fromEntries(FIELDS.map(k=>[k,$(k).value]));
+function match(r,except=''){
+ const s=selected();if(!quickMatch(r))return false;if(except!=='plazo'&&activePlazo&&plazoOf(r)!==activePlazo)return false;
+ for(const k of FIELDS){if(k===except||!s[k])continue;if(k==='contrato'){if(r.expediente!==s[k])return false;}else if(k==='grupo'){if(!grps(r).some(g=>N(g)===N(s[k])))return false;}else if(k==='parque'){if(!parkMatch(r,s[k]))return false;}else if(N(r[k])!==N(s[k]))return false;}
+ const q=N($('buscar').value);if(q&&!N([r.distrito,r.area,r.direccion,r.unidad,r.empresa,r.contrato,r.expediente,r.lote,r.servicio,r.prestacion,r.cobertura,r.excepciones,r.grupos].join(' ')).includes(q))return false;
+ return true;
+}
+function optValues(k){let rows=RECORDS.filter(r=>match(r,k));if(k==='grupo')return [...new Set(rows.flatMap(grps))].sort((a,b)=>a.localeCompare(b,'es'));if(k==='contrato'){let m=new Map();rows.forEach(r=>m.set(r.expediente,r.contrato));return [...m.entries()].sort((a,b)=>a[1].localeCompare(b[1],'es'));}if(k==='parque')return PARKS;return [...new Set(rows.map(r=>r[k]).filter(Boolean))].sort((a,b)=>a.localeCompare(b,'es'))}
+const LABELS={distrito:'Todos los distritos',area:'Todas las áreas',direccion:'Todas las direcciones',unidad:'Todas las subdirecciones',grupo:'Todos los grupos',empresa:'Todas las empresas / UTE',servicio:'Todos los servicios',parque:'Todos los parques',contrato:'Todos los contratos'};
+function populate(){FIELDS.forEach(k=>{const s=$(k),prev=s.value;const opts=optValues(k);s.replaceChildren(new Option(LABELS[k],''));if(k==='contrato'){opts.forEach(([id,title])=>s.add(new Option(title.slice(0,82)+' · '+id,id)))}else opts.forEach(v=>s.add(new Option(v,v)));if([...s.options].some(o=>o.value===prev))s.value=prev;});}
+function refreshDistrictDropdown(){
+ const district=$('distrito').value, panel=$('district-panel'), sel=$('district-contracts');
+ panel.classList.toggle('hide',!district);
+ if(!district)return;
+ $('district-panel-title').textContent='Distrito: '+district;
+ const rows=RECORDS.filter(r=>match(r));
+ const contracts=new Map();
+ rows.forEach(r=>{const key=r.expediente+'|'+(r.lote||'');if(!contracts.has(key))contracts.set(key,r)});
+ const items=[...contracts.values()].sort((a,b)=>a.contrato.localeCompare(b.contrato,'es'));
+ sel.replaceChildren(new Option('Selecciona un contrato para consultar su ficha...', ''));
+ items.forEach(r=>sel.add(new Option(r.contrato+' · '+r.expediente+(r.lote&&r.lote!=='Sin lotes'?' · Lote '+r.lote:''),r.expediente+'|'+(r.lote||''))));
+ $('district-contract-count').textContent=items.length+' contratos/lotes disponibles';
+}
+$('district-clear').addEventListener('click',()=>{$('distrito').value='';$('contrato').value='';update()});
+$('district-contracts').addEventListener('change',e=>{
+ const target=e.target.value;if(!target)return;
+ const entries=window._entries||[];
+ const index=entries.findIndex(r=>r.expediente+'|'+(r.lote||'')===target);
+ if(index<0)return;
+ if(index>=24*(page+1)){page=Math.floor(index/24);renderSlice();}
+ const detail=[...$('results').querySelectorAll('details.contract-detail')].find(x=>x.dataset.key===target);
+ if(!detail)return;
+ detail.open=true;
+ const card=detail.closest('.result');
+ card.classList.add('result-focus');
+ card.scrollIntoView({behavior:'smooth',block:'center'});
+ setTimeout(()=>card.classList.remove('result-focus'),2500);
+});
+function update(){populate();const rows=RECORDS.filter(r=>match(r)),ids=new Set(rows.map(r=>r.expediente));$('result-sub').textContent=rows.length+' relaciones territoriales · '+ids.size+' expedientes diferentes';$('result-title').textContent='Contratos encontrados';$('applied').textContent=(FIELDS.filter(k=>$(k).value).map(k=>$(k).selectedOptions[0]?.textContent).concat(activeQuick?[QUICK.find(x=>x[0]===activeQuick)?.[1]]:[]).concat($('buscar').value?['Texto: '+$('buscar').value]:[]).concat(activePlazo?[PLAZOS.find(p=>p[0]===activePlazo)[1]]:[]).join(' · '))||'Sin filtros activos';page=0;drawResults(rows);drawMap(rows);refreshDistrictDropdown();document.querySelectorAll('.quick button').forEach(x=>x.classList.toggle('active',x.dataset.key===activeQuick));afterUpdate(rows);renderPlazos();ambUI(rows);}
+function downloadCsv(){let rows=RECORDS.filter(r=>match(r)),fields=[['Distrito','distrito'],['Servicio','servicio'],['Dirección','direccion'],['Subdirección','unidad'],['Grupo','grupos'],['Empresa','empresa'],['Contrato','contrato'],['Expediente','expediente'],['Lote','lote'],['Inicio','inicio'],['Fin','fin'],['Estado','estado'],['Fuente','fuente']];const esc=s=>'"'+String(s||'').replace(/"/g,'""').replace(/\r?\n/g,' ')+'"';const csv='\ufeff'+[fields.map(f=>esc(f[0])).join(';'),...rows.map(r=>fields.map(f=>esc(r[f[1]])).join(';'))].join('\r\n');const b=new Blob([csv],{type:'text/csv;charset=utf-8'}),url=URL.createObjectURL(b),a=document.createElement('a');a.href=url;a.download='contratos_madrid_seleccion.csv';a.click();setTimeout(()=>URL.revokeObjectURL(url),1500)}
+function urls(s){return [...new Set(String(s||'').split(/\s+/).filter(v=>/^https?:\/\//.test(v)))]}
+function drawResults(rows){const byId=new Map();rows.forEach(r=>{const id=r.expediente+'|'+(r.lote||'');if(!byId.has(id))byId.set(id,{...r,distritos:[]});let a=byId.get(id);if(!a.distritos.includes(r.distrito))a.distritos.push(r.distrito)});const entries=[...byId.values()].sort((a,b)=>a.contrato.localeCompare(b.contrato,'es'));window._entries=entries;renderSlice();}
+function node(tag,cls,txt){let e=document.createElement(tag);if(cls)e.className=cls;if(txt!==undefined)e.textContent=txt;return e}
+function renderSlice(){
+ const entries=window._entries||[],container=$('results');
+ container.replaceChildren();
+ const shown=entries.slice(0,24*(page+1));
+ if(!shown.length){
+  container.append(node('div','result','No hay resultados con estos filtros. Prueba a limpiar los filtros.'));
+  $('more').classList.add('hide');return;
+ }
+ for(const r of shown){
+  const key=r.expediente+'|'+(r.lote||'');
+  const card=node('article','result');card.dataset.key=key;
+  const details=node('details','contract-detail');details.dataset.key=key;
+  const summary=node('summary','contract-summary');
+  const headline=node('div','contract-summary-main');
+  headline.append(node('div','result-title',r.contrato));
+  headline.append(node('div','result-meta','Expediente: '+r.expediente+(r.lote&&r.lote!=='Sin lotes'?' · Lote '+r.lote:'')));
+  summary.append(headline);
+  const hint=node('span','expand-label');hint.append(node('span','expand-label-text','Ver ficha'));
+  summary.append(hint);details.append(summary);
+  const body=node('div','contract-body');
+  const grid=node('dl','contract-fields');
+  const noData='No consta en esta base de datos';
+  const addField=(label,value,wide=false)=>{
+   const box=node('div','contract-field'+(wide?' wide':''));
+   const text=String(value===null||value===undefined?'':value).trim();
+   box.append(node('dt','',label),node('dd','',text||noData));
+   grid.append(box);
+  };
+  addField('Empresa adjudicataria / UTE',r.empresa,true);
+  addField('Expediente',r.expediente);
+  addField('Lote',r.lote||'Sin lotes');
+  addField('Qué hace el contrato',r.prestacion||r.contrato,true);
+  addField('Distritos incluidos',(r.distritos||[]).join(', ')||r.distrito,true);
+  if(r.cobertura)addField('Ámbito o cobertura',r.cobertura,true);
+  addField('Fecha de inicio',r.inicio);
+  addField('Fecha de fin',r.fin);
+  const groups=String(r.grupos||'').split('|').map(x=>x.trim()).filter(Boolean).join(' · ');
+  if(groups)addField('Grupo(s) empresarial(es)',groups,true);
+  if(r.area)addField('Área de gobierno',r.area,true);
+  if(r.direccion)addField('Dirección general',r.direccion,true);
+  if(r.unidad)addField('Subdirección / unidad',r.unidad,true);
+  if(r.gestor&&r.gestor!=='No acreditado')addField('Servicio gestor',r.gestor,true);
+  addField('Estado / vigencia',r.vigencia||r.estado,true);
+  if(r.excepciones)addField('Particularidades',r.excepciones,true);
+  if(r.estado&&r.estado!==r.vigencia)addField('Notas de comprobación',r.estado,true);
+  body.append(grid);
+  const sourceList=urls(r.fuente);
+  if(sourceList.length){
+   body.append(node('div','source-title','Documentos y fuentes del contrato'));
+   const links=node('div','source-links');
+   sourceList.forEach((u,i)=>{
+    const link=node('a','',i===0?'Consultar fuente '+(i+1):'Otra fuente '+(i+1));
+    link.href=u;link.target='_blank';link.rel='noopener noreferrer';links.append(link);
+   });body.append(links);
+  }else body.append(node('div','source-title','Sin enlace documental en la base de datos'));
+  details.append(body);card.append(details);container.append(card);
+ }
+ $('more').classList.toggle('hide',entries.length<=shown.length);
+ $('more').textContent='Mostrar más ('+(entries.length-shown.length)+' restantes)';
+}
+const svg=(name,att={})=>{let e=document.createElementNS('http://www.w3.org/2000/svg',name);Object.entries(att).forEach(([k,v])=>e.setAttribute(k,String(v)));return e};
+function normDist(s){const n=N(s);return DISTRICTS.find(x=>N(x)===n)||({ 'fuencarral el pardo':'Fuencarral-El Pardo','san blas canillejas':'San Blas-Canillejas','moncloa aravaca':'Moncloa-Aravaca','pente de vallecas':'Puente de Vallecas'}[n])||s}
+function polygons(g){return g?.type==='Polygon'?[g.coordinates]:g?.type==='MultiPolygon'?g.coordinates:[]}
+function projectGeometry(feats){
+ const all=[];feats.forEach(f=>polygons(f.geometry).forEach(poly=>poly.forEach(r=>r.forEach(c=>all.push(c)))));
+ if(!all.length)return [];
+ // Proyección cartográfica ESQUEMÁTICA. Continuidad topológica: todos los distritos
+ // comparten la misma transformación. Ensancha el centro frente a los distritos externos.
+ const adj=Math.cos(40.42*Math.PI/180);
+ const raw=all.map(p=>[(p[0]+3.704)*adj,40.418-p[1]]);
+ const xs=raw.map(x=>x[0]),ys=raw.map(x=>x[1]);
+ const rx=Math.max(...xs)-Math.min(...xs),ry=Math.max(...ys)-Math.min(...ys);
+ const sx=rx*.145,sy=ry*.16;
+ const warp=p=>[Math.asinh(((p[0]+3.704)*adj)/sx),Math.asinh((40.418-p[1])/sy)];
+ const warped=all.map(warp),wx1=Math.min(...warped.map(p=>p[0])),wx2=Math.max(...warped.map(p=>p[0])),wy1=Math.min(...warped.map(p=>p[1])),wy2=Math.max(...warped.map(p=>p[1]));
+ // El mapa se aprovecha de ANCHO: estiramiento horizontal intencional y legible.
+ const px=p=>{const w=warp(p);return [58+(w[0]-wx1)*1434/(wx2-wx1),45+(w[1]-wy1)*839/(wy2-wy1)]};
+ return feats.map(f=>({...f,name:normDist(f.properties?.name||f.properties?.NOMBRE||f.properties?.distrito||''),projected:polygons(f.geometry).map(poly=>poly.map(ring=>ring.map(px)))}));
+}
+function ptCentroid(r){let A=0,Cx=0,Cy=0;for(let i=0;i<r.length;i++){const [x,y]=r[i],[x1,y1]=r[(i+1)%r.length],t=x*y1-x1*y;A+=t;Cx+=(x+x1)*t;Cy+=(y+y1)*t}return Math.abs(A)<.001?[r.reduce((a,p)=>a+p[0],0)/r.length,r.reduce((a,p)=>a+p[1],0)/r.length]:[Cx/(3*A),Cy/(3*A)];}
+function labelLocation(p){const rings=p.projected.flatMap(poly=>poly);let biggest=rings.sort((a,b)=>a.length-b.length).at(-1)||[];if(!biggest.length)return [0,0,0,0];let xs=biggest.map(v=>v[0]),ys=biggest.map(v=>v[1]),width=Math.max(...xs)-Math.min(...xs),height=Math.max(...ys)-Math.min(...ys);return [...ptCentroid(biggest),width,height]}
+const PARTS={
+ 'Fuencarral-El Pardo':['Fuencarral','El Pardo'],
+ 'Moncloa-Aravaca':['Moncloa','Aravaca'],
+ 'Puente de Vallecas':['Puente','de Vallecas'],
+ 'Villa de Vallecas':['Villa de','Vallecas'],
+ 'San Blas-Canillejas':['San Blas','Canillejas'],
+ 'Ciudad Lineal':['Ciudad','Lineal'],
+ 'Arganzuela':['Arganzuela'],
+ 'Carabanchel':['Carabanchel']
+};
+function inside(p,r){let c=false;for(let i=0,j=r.length-1;i<r.length;j=i++){
+ const a=r[i],b=r[j];if(((a[1]>p[1])!=(b[1]>p[1]))&&(p[0]<(b[0]-a[0])*(p[1]-a[1])/(b[1]-a[1]+1e-10)+a[0]))c=!c;
+ }return c;}
+function segdist(p,a,b){const x=b[0]-a[0],y=b[1]-a[1],t=Math.max(0,Math.min(1,((p[0]-a[0])*x+(p[1]-a[1])*y)/(x*x+y*y+1e-9)));return Math.hypot(p[0]-a[0]-t*x,p[1]-a[1]-t*y)}
+function bestInterior(d){
+ const rings=d.projected.flatMap(poly=>poly).filter(r=>r.length>3);
+ if(!rings.length)return [0,0,14];
+ // Buscar un punto interior con más espacio libre que el centro del bounding box.
+ const r=rings.reduce((best,ring)=>ring.length>best.length?ring:best,rings[0]);
+ const a=r.map(p=>p[0]),b=r.map(p=>p[1]);let x1=Math.min(...a),x2=Math.max(...a),y1=Math.min(...b),y2=Math.max(...b);
+ let best=[(x1+x2)/2,(y1+y2)/2],top=-1;
+ const tryPoint=p=>{if(!inside(p,r))return;let min=Infinity;for(let i=0;i<r.length;i++)min=Math.min(min,segdist(p,r[i],r[(i+1)%r.length]));if(min>top){best=p;top=min}};
+ tryPoint(ptCentroid(r));
+ for(let iy=1;iy<=13;iy++)for(let ix=1;ix<=17;ix++)tryPoint([x1+(x2-x1)*ix/18,y1+(y2-y1)*iy/14]);
+ return [...best,Math.max(5,top),x2-x1,y2-y1];
+}
+function drawMap(rows){
+ if(!geoReady)return;
+ const root=$('map');root.replaceChildren(background());
+ let counts=new Map();rows.forEach(r=>counts.set(N(r.distrito),(counts.get(N(r.distrito))||0)+1));
+ const ambN=rows.filter(r=>r.distrito==='Ámbito municipal').length,ambE=new Set(rows.filter(r=>r.distrito==='Ámbito municipal').map(r=>r.expediente)).size;const pd=svg('defs');const pat=svg('pattern',{id:'ambPat',patternUnits:'userSpaceOnUse',width:12,height:12,patternTransform:'rotate(45)'});pat.append(svg('rect',{width:12,height:12,fill:'#eef3fa'}),svg('rect',{width:5,height:12,fill:'#c9d9ee'}));pd.append(pat);root.append(pd);
+ const chosen=$('distrito').value,layer=svg('g',{'aria-label':'Mapa esquemático de los 21 distritos, con nombres dentro de sus límites'});root.append(layer);
+ const labels=svg('g',{'aria-label':'Nombres de distritos colocados sobre sus zonas'});
+ for(const d of features){if(!DISTRICTS.includes(d.name))continue;
+  const all=[];d.projected.forEach(poly=>poly.forEach(ring=>{if(ring.length)all.push('M'+ring.map(q=>q.map(x=>x.toFixed(1)).join(',')).join('L')+'Z')}));
+  if(!all.length)continue;
+  const c=counts.get(N(d.name))||0;
+  const path=svg('path',{d:all.join(' '),fill:chosen===d.name?'#123d7a':c?blueFill(c,counts):ambN?'url(#ambPat)':'#eef1f4',class:'district'+(chosen===d.name?' active':'')+(!c&&ambN?' amb':''),role:'button',tabindex:0,'aria-label':d.name+' · '+c+' registros'});
+  path.addEventListener('click',()=>chooseDistrict(d.name));
+  path.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();chooseDistrict(d.name)}});
+  path.addEventListener('pointermove',e=>{let box=$('map-stage').getBoundingClientRect();$('tip').classList.remove('hide');$('tip').style.left=Math.min(box.width-250,e.clientX-box.left+12)+'px';$('tip').style.top=Math.max(12,e.clientY-box.top-46)+'px';$('tip').textContent=d.name+' · '+c+' relaciones propias'+(ambN?' + '+ambE+' expediente(s) de ámbito municipal (toda la ciudad)':'')});
+  path.addEventListener('pointerleave',()=>$('tip').classList.add('hide'));
+  layer.append(path);
+  const [x,y,dist,w,h]=bestInterior(d);const lines=PARTS[d.name]||[d.name];
+  let chars=Math.max(...lines.map(t=>t.length));
+  // Letras GRANDES encima de su distrito. Se ajusta la longitud con dos líneas cuando conviene.
+  const estimatedWidth=Math.max(25,Math.min(w*.84,dist*3.25));
+  const fs=Math.max(11,Math.min(19,estimatedWidth/(chars*.59),h/(lines.length*1.12)));
+  const gap=fs*1.02,y0=y-(lines.length-1)*gap/2+fs*.32;
+  let g=svg('g',{'aria-label':d.name,'data-district-label':d.name});
+  lines.forEach((line,i)=>{const t=svg('text',{x:x.toFixed(1),y:(y0+i*gap).toFixed(1),'font-size':fs.toFixed(1),class:'district-label'});t.textContent=line;g.append(t)});
+  labels.append(g);
+ }
+ root.append(labels);
+}
+function ambUI(rows){const a=rows.filter(r=>r.distrito==='Ámbito municipal'),e=new Set(a.map(r=>r.expediente)).size;$('ambBadge').classList.toggle('hide',!a.length);$('ambBadge').textContent=a.length?'La selección incluye '+e+' expediente(s) de ámbito municipal que cubren los 21 distritos':'';$('lgAmb').classList.toggle('hide',!a.length);const em=$('kDis').parentElement.querySelector('em');if(a.length){$('kDis').textContent='21';em.textContent='incluye cobertura de ámbito municipal'}else em.textContent='con contratos en la selección'}
+function chooseDistrict(d){$('distrito').value=$('distrito').value===d?'':d;update();}
+function setView(){let v=view;$('map').setAttribute('viewBox',`${v.x} ${v.y} ${v.w} ${v.h}`)}
+function zoomBy(f){let cx=view.x+view.w/2,cy=view.y+view.h/2;let w=Math.max(250,Math.min(2200,view.w*f)),h=w*930/1550;view={x:cx-w/2,y:cy-h/2,w,h};setView()}
+async function loadGeo(){for(const url of GEO_URLS){try{const ctr=new AbortController();const t=setTimeout(()=>ctr.abort(),8500);let response=await fetch(url,{signal:ctr.signal});clearTimeout(t);if(!response.ok)continue;let json=await response.json();if(json?.features?.length>=21){rawGeo=json.features;features=mapMode==='geo'?projectMercator(rawGeo):projectGeometry(rawGeo);geoReady=true;$('map-status').classList.add('hide');$('source').textContent='Cartograma ampliado del centro · límites deformados para legibilidad · no a escala';drawMap(RECORDS.filter(r=>match(r)));paintLabels();return}}catch(e){console.warn('Cartografía no disponible',e)}}$('map-status').textContent='No se ha podido cargar la geometría del mapa. Comprueba la conexión. Puedes utilizar los filtros para consultar los contratos.';}
+QUICK.forEach(([key,title])=>{let b=node('button','',title);b.dataset.key=key;b.addEventListener('click',()=>{activeQuick=activeQuick===key?'':key;update()});$('quicks').append(b)});
+FIELDS.forEach(k=>$(k).addEventListener('change',update));$('buscar').addEventListener('input',update);$('limpiar').addEventListener('click',()=>{FIELDS.forEach(k=>$(k).value='');$('buscar').value='';activeQuick='';activePlazo='';view={...base};setView();update()});$('more').addEventListener('click',()=>{page++;renderSlice()});$('download').addEventListener('click',downloadCsv);$('zoomIn').addEventListener('click',()=>zoomBy(.8));$('zoomOut').addEventListener('click',()=>zoomBy(1.25));$('zoomFit').addEventListener('click',()=>{view={...base};setView()});$('full').addEventListener('click',()=>{$('map-stage').requestFullscreen?.()});
+const map=$('map');map.addEventListener('pointerdown',e=>{if(e.button!==0||e.target!==map)return;drag={x:e.clientX,y:e.clientY,view:{...view}};map.classList.add('grabbing');map.setPointerCapture(e.pointerId)});map.addEventListener('pointermove',e=>{if(!drag)return;let rect=map.getBoundingClientRect();view.x=drag.view.x-(e.clientX-drag.x)*view.w/rect.width;view.y=drag.view.y-(e.clientY-drag.y)*view.h/rect.height;setView()});map.addEventListener('pointerup',e=>{drag=null;map.classList.remove('grabbing')});map.addEventListener('wheel',e=>{e.preventDefault();zoomBy(e.deltaY>0?1.1:.9)},{passive:false});
+
+/* ======== Capa de presentación del nuevo diseño (no modifica datos ni filtrado) ======== */
+let mapMode='carto',rawGeo=null,bgCache={};
+const RAMP=['#d6e3f2','#8fb0d8','#3f6fae','#0d2a52'];
+function mixHex(a,b,t){const h=c=>[1,3,5].map(i=>parseInt(c.slice(i,i+2),16));const x=h(a),y=h(b);return '#'+x.map((v,i)=>Math.round(v+(y[i]-v)*t).toString(16).padStart(2,'0')).join('')}
+function rampColor(t){t=Math.max(0,Math.min(1,t));const s=t*(RAMP.length-1),i=Math.min(RAMP.length-2,Math.floor(s));return mixHex(RAMP[i],RAMP[i+1],s-i)}
+function districtRange(counts){const v=DISTRICTS.map(d=>counts.get(N(d))||0).filter(Boolean);return v.length?[Math.min(...v),Math.max(...v)]:[0,0]}
+function blueFill(c,counts){const [mn,mx]=districtRange(counts);return rampColor(mx===mn?.6:.06+.84*(c-mn)/(mx-mn))}
+function isDark(hex){if(!/^#[0-9a-f]{6}$/i.test(hex||''))return false;const v=[1,3,5].map(i=>parseInt(hex.slice(i,i+2),16)/255);return .2126*v[0]+.7152*v[1]+.0722*v[2]<.42}
+/* Proyección geográfica real (Web Mercator), alineada con teselas cartográficas */
+const TZ=12,TW=256*Math.pow(2,TZ);
+const merc=([lon,lat])=>{const s=Math.sin(lat*Math.PI/180);return [(lon+180)/360*TW,(0.5-Math.log((1+s)/(1-s))/(4*Math.PI))*TW]};
+function projectMercator(feats){
+ const all=[];feats.forEach(f=>polygons(f.geometry).forEach(p=>p.forEach(r=>r.forEach(c=>all.push(merc(c))))));
+ const xs=all.map(p=>p[0]),ys=all.map(p=>p[1]),x1=Math.min(...xs),x2=Math.max(...xs),y1=Math.min(...ys),y2=Math.max(...ys);
+ const s=Math.min(1434/(x2-x1),850/(y2-y1)),ox=(1550-(x2-x1)*s)/2-x1*s,oy=(930-(y2-y1)*s)/2-y1*s;window._merc={s,ox,oy};
+ const px=c=>{const m=merc(c);return [m[0]*s+ox,m[1]*s+oy]};
+ return feats.map(f=>({...f,name:normDist(f.properties?.name||f.properties?.NOMBRE||f.properties?.distrito||''),projected:polygons(f.geometry).map(poly=>poly.map(ring=>ring.map(px)))}));
+}
+function background(){
+ if(bgCache[mapMode])return bgCache[mapMode];
+ const g=svg('g',{'pointer-events':'none'});
+ if(mapMode==='carto'){
+  const defs=svg('defs');
+  const f=svg('filter',{id:'relief',x:'0',y:'0',width:'100%',height:'100%'});
+  f.append(svg('feTurbulence',{type:'fractalNoise',baseFrequency:'0.005 0.007',numOctaves:'5',seed:'11',result:'n'}));
+  const lt=svg('feDiffuseLighting',{in:'n','lighting-color':'#eef3e4',surfaceScale:'3.2',result:'l'});lt.append(svg('feDistantLight',{azimuth:'315',elevation:'48'}));f.append(lt);
+  f.append(svg('feComposite',{in:'l',in2:'SourceGraphic',operator:'arithmetic',k1:'1',k2:'0',k3:'0',k4:'0'}));
+  const sh=svg('filter',{id:'cityShadow',x:'-10%',y:'-10%',width:'120%',height:'120%'});sh.append(svg('feDropShadow',{dx:'0',dy:'4',stdDeviation:'7','flood-color':'#1d3320','flood-opacity':'.3'}));
+  const gr=svg('radialGradient',{id:'vig',cx:'50%',cy:'50%',r:'75%'});gr.append(svg('stop',{offset:'55%','stop-color':'#000','stop-opacity':'0'}),svg('stop',{offset:'100%','stop-color':'#2f4a2a','stop-opacity':'.18'}));
+  defs.append(f,sh,gr);g.append(defs);
+  g.append(svg('rect',{x:-2200,y:-1400,width:5950,height:3730,fill:'#dfe8d0'}));
+  g.append(svg('rect',{x:-2200,y:-1400,width:5950,height:3730,fill:'#cfdcbc',filter:'url(#relief)',opacity:'.5'}));
+  /* Cauces de agua orientativos (decorativos, fuera del área de distritos) */
+  g.append(svg('rect',{x:-2200,y:-1400,width:5950,height:3730,fill:'url(#vig)'}));
+ }else{
+  const m=window._merc,mg=.25,wx0=(-1550*mg-m.ox)/m.s,wx1=(1550*(1+mg)-m.ox)/m.s,wy0=(-930*mg-m.oy)/m.s,wy1=(930*(1+mg)-m.oy)/m.s;
+  g.append(svg('rect',{x:-2200,y:-1400,width:5950,height:3730,fill:'#f2efe9'}));
+  const sh=svg('filter',{id:'cityShadow',x:'-10%',y:'-10%',width:'120%',height:'120%'});sh.append(svg('feDropShadow',{dx:'0',dy:'2',stdDeviation:'3','flood-color':'#0d2a52','flood-opacity':'.25'}));const defs=svg('defs');defs.append(sh);g.append(defs);
+  for(let ty=Math.floor(wy0/256);ty<=Math.floor(wy1/256);ty++)for(let tx=Math.floor(wx0/256);tx<=Math.floor(wx1/256);tx++){
+   const im=svg('image',{x:(tx*256*m.s+m.ox).toFixed(2),y:(ty*256*m.s+m.oy).toFixed(2),width:(256*m.s+.6).toFixed(2),height:(256*m.s+.6).toFixed(2),preserveAspectRatio:'none'});
+   im.setAttribute('href','https://'+'abcd'[(tx+ty)&3]+'.basemaps.cartocdn.com/rastertiles/voyager_nolabels/'+TZ+'/'+tx+'/'+ty+'.png');g.append(im);
+  }
+ }
+ return bgCache[mapMode]=g;
+}
+function setMapMode(m){
+ if(m===mapMode||!rawGeo)return;mapMode=m;
+ features=m==='geo'?projectMercator(rawGeo):projectGeometry(rawGeo);
+ document.querySelectorAll('.views button').forEach(b=>{const on=b.dataset.view===m;b.classList.toggle('on',on);b.setAttribute('aria-pressed',on)});
+ $('map-stage').classList.toggle('geo',m==='geo');$('attr').classList.toggle('hide',m!=='geo');
+ $('viewNote').innerHTML=m==='geo'?'<b>Vista geográfica</b> · límites reales a escala sobre cartografía base':'<b>Vista esquemática</b> · zonas centrales ampliadas para facilitar la lectura · no a escala';
+ view={...base};setView();drawMap(RECORDS.filter(r=>match(r)));paintLabels();
+}
+document.querySelectorAll('.views button').forEach(b=>b.addEventListener('click',()=>setMapMode(b.dataset.view)));
+/* Fotografías reales verificadas en Wikimedia Commons. Si no hay foto verificada, diseño sin imagen. */
+const PHOTOS={
+ 'Centro':{src:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Madrid-_Puerta_del_Sol_-_51454839271.jpg/960px-Madrid-_Puerta_del_Sol_-_51454839271.jpg',page:'https://commons.wikimedia.org/wiki/File:Madrid-_Puerta_del_Sol_-_51454839271.jpg',cap:'Puerta del Sol'},
+ 'Retiro':{src:'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Palacio_de_Cristal%2C_Retiro%2C_Madrid.jpg/500px-Palacio_de_Cristal%2C_Retiro%2C_Madrid.jpg',page:'https://commons.wikimedia.org/wiki/File:Palacio_de_Cristal,_Retiro,_Madrid.jpg',cap:'Palacio de Cristal (Parque de El Retiro) · vpogarcia, CC BY-SA 2.0'},
+ 'Moncloa-Aravaca':{src:'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Templo_de_Debod_(Madrid)_31.jpg/1280px-Templo_de_Debod_(Madrid)_31.jpg',page:'https://commons.wikimedia.org/wiki/File:Templo_de_Debod_(Madrid)_31.jpg',cap:'Templo de Debod'},
+ 'Fuencarral-El Pardo':{src:'https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Cuatro_Torres_(49170066717).jpg/1280px-Cuatro_Torres_(49170066717).jpg',page:'https://commons.wikimedia.org/wiki/File:Cuatro_Torres_(49170066717).jpg',cap:'Cuatro Torres Business Area'},
+ 'Arganzuela':{src:'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Mercado_y_Matadero_de_Aves-Arganzuela.jpg/330px-Mercado_y_Matadero_de_Aves-Arganzuela.jpg',page:'https://commons.wikimedia.org/wiki/File:Mercado_y_Matadero_de_Aves-Arganzuela.jpg',cap:'Antiguo Mercado y Matadero de Aves (Matadero Madrid)'},
+ 'San Blas-Canillejas':{src:'https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Wanda-Metropolitano.jpg/960px-Wanda-Metropolitano.jpg',page:'https://commons.wikimedia.org/wiki/File:Wanda-Metropolitano.jpg',cap:'Estadio Metropolitano'}
+};
+let heroFor=null;
+function renderHero(d){
+ const key=d||'';if(heroFor===key)return;heroFor=key;
+ const h=$('hero');h.querySelectorAll('img,.credit').forEach(x=>x.remove());h.classList.remove('has-photo');$('photoCap').classList.add('hide');
+ const idx=DISTRICTS.indexOf(d);$('dNum').textContent=idx>=0?String(idx+1).padStart(2,'0'):'';
+ const p=PHOTOS[d];if(!p)return;
+ const img=new Image();img.alt=p.cap+' ('+d+')';img.loading='lazy';img.referrerPolicy='no-referrer';
+ img.onload=()=>{if(heroFor!==key)return;h.classList.add('has-photo');const c=node('a','credit','Foto ↗');c.href=p.page;c.target='_blank';c.rel='noopener';c.title='Ver autoría y licencia en Wikimedia Commons';h.append(c);$('photoCap').textContent=p.cap+' · Wikimedia Commons';$('photoCap').classList.remove('hide')};
+ img.onerror=()=>img.remove();img.src=p.src;h.prepend(img);
+}
+function openFicha(key){
+ const entries=window._entries||[];const index=entries.findIndex(r=>r.expediente+'|'+(r.lote||'')===key);if(index<0)return;
+ if(index>=24*(page+1)){page=Math.floor(index/24);renderSlice();}
+ const detail=[...$('results').querySelectorAll('details.contract-detail')].find(x=>x.dataset.key===key);if(!detail)return;
+ detail.open=true;const card=detail.closest('.result');card.classList.add('result-focus');card.scrollIntoView({behavior:'smooth',block:'center'});setTimeout(()=>card.classList.remove('result-focus'),2500);
+}
+function renderSideList(){
+ const box=$('clist'),q=N($('lFilter').value);box.replaceChildren();
+ const list=(window._entries||[]).filter(r=>!q||N([r.contrato,r.expediente,r.empresa,r.servicio,r.lote].join(' ')).includes(q));
+ if(!list.length){box.append(node('div','empty','No hay contratos en esta selección.'));return}
+ list.forEach(r=>{const key=r.expediente+'|'+(r.lote||'');const b=node('button','citem');b.type='button';
+  const main=node('span','');const t=node('span','t');t.append(node('b','',r.contrato),node('span','tag',r.servicio||''));
+  main.append(t,node('span','m','Exp. '+r.expediente+(r.lote&&r.lote!=='Sin lotes'?' · Lote '+r.lote:'')+(r.fin?' · Fin '+r.fin:'')),node('span','e',r.empresa));
+  b.append(main,node('span','chev','›'));b.addEventListener('click',()=>openFicha(key));box.append(b)});
+}
+function paintLabels(){
+ const paths=[...document.querySelectorAll('#map path.district')];
+ document.querySelectorAll('#map [data-district-label]').forEach(g=>{const p=paths.find(x=>x.getAttribute('aria-label').startsWith(g.dataset.districtLabel+' ·'));if(!p)return;const dark=p.classList.contains('active')||(mapMode==='carto'&&isDark(p.getAttribute('fill')));g.querySelectorAll('text').forEach(t=>t.classList.toggle('dark',dark))});
+ const lay=document.querySelector('#map > g[aria-label^="Mapa"]');if(lay)lay.setAttribute('filter','url(#cityShadow)');
+}
+const ADV=['unidad','grupo','parque'];
+function afterUpdate(rows){
+ const exp=new Set(rows.map(r=>r.expediente)).size,entries=window._entries||[];
+ $('count-exp').textContent=exp;$('count-rel').textContent=rows.length;$('kExpS').textContent=exp===67?'contratos y lotes':'de 67 en total';
+ $('kDis').textContent=new Set(rows.map(r=>r.distrito).filter(d=>DISTRICTS.includes(d))).size;
+ $('kEmp').textContent=new Set(rows.map(r=>r.empresa)).size;$('kGru').textContent=new Set(rows.flatMap(grps)).size;
+ FIELDS.forEach(k=>$(k).classList.toggle('set',!!$(k).value));$('buscar').classList.toggle('set',!!$('buscar').value);
+ const na=ADV.filter(k=>$(k).value).length;$('advN').textContent=na;$('advN').classList.toggle('hide',!na);if(na)$('adv').open=true;
+ $('applied').classList.toggle('on',$('applied').textContent!=='Sin filtros activos');
+ const d=$('distrito').value,anyF=FIELDS.some(k=>$(k).value)||activeQuick||$('buscar').value;
+ $('dKicker').textContent=d?(d==='Ámbito municipal'?'Sin distrito concreto':'Distrito seleccionado'):(anyF?'Selección filtrada':'Vista general');
+ $('dTitle').textContent=d||(anyF?'Resultados filtrados':'Toda la ciudad');$('dClear').classList.toggle('hide',!d);renderHero(d);
+ $('dRel').textContent=rows.length;$('dExp').textContent=exp;$('dEmp').textContent=new Set(rows.map(r=>r.empresa)).size;
+ const ts=new Map();rows.forEach(r=>ts.set(r.servicio,(ts.get(r.servicio)||0)+1));$('topServ').replaceChildren(...[...ts].sort((a,b)=>b[1]-a[1]).slice(0,4).map(([s,n])=>node('span','',s+' · '+n)));
+ $('lTitle').textContent=(d?'Contratos en este distrito':'Contratos de la selección')+' ('+entries.length+')';
+ $('lAll').textContent='Ver todas las fichas'+(d?' de '+d:'')+' ('+entries.length+') →';
+ renderSideList();
+ const counts=new Map();rows.forEach(r=>counts.set(N(r.distrito),(counts.get(N(r.distrito))||0)+1));
+ const [mn,mx]=districtRange(counts);$('lgMin').textContent=mx?mn:'–';$('lgMax').textContent=mx?mx:'–';$('lgMid').textContent=mx&&mx-mn>2?Math.round((mn+mx)/2):'';
+ const amb=RECORDS.filter(r=>r.distrito==='Ámbito municipal'&&match(r,'distrito'));
+ $('ambitoTxt').textContent=amb.length+' relaciones · '+new Set(amb.map(r=>r.expediente)).size+' expedientes con los filtros actuales';
+ const isAmb=d==='Ámbito municipal';$('ambitoBtn').classList.toggle('on',isAmb);$('ambitoBtn').textContent=isAmb?'✕ Quitar ámbito municipal':'Ver contratos de ámbito municipal →';$('ambitoBtn').disabled=!amb.length&&!isAmb;
+ paintLabels();
+}
+const QICON={'':'<circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/>',integral:'<rect x="4" y="4" width="7" height="7"/><rect x="13" y="4" width="7" height="7"/><rect x="4" y="13" width="7" height="7"/><rect x="13" y="13" width="7" height="7"/>',retiro:'<path d="M12 3c4 3 6 6 6 9a6 6 0 0 1-12 0c0-3 2-6 6-9zM12 21v-6"/>',residuos:'<path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13"/>',zonas:'<path d="M12 2l5 8h-3l4 6H6l4-6H7zM12 16v6"/>',obras:'<path d="M3 20h18M5 20l3-12h8l3 12M9 8V4h6v4"/>',instalaciones:'<path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10c1 1 1 2 1 3h6c0-1 0-2 1-3a6 6 0 0 0-4-10z"/>',movilidad:'<path d="M5 16V11l2-5h10l2 5v5M5 16h14M7 19v-3M17 19v-3"/><circle cx="8" cy="13" r=".8"/><circle cx="16" cy="13" r=".8"/>',ambiental:'<path d="M5 19c0-8 6-14 15-14-1 9-6 15-14 15M5 19l7-7"/>',tecnologia:'<rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/>',acciona:'<path d="M6 20L12 4l6 16M8.5 14h7"/>'};
+document.querySelectorAll('#quicks button').forEach(b=>{const i=node('i','');i.setAttribute('aria-hidden','true');i.innerHTML='<svg viewBox="0 0 24 24">'+(QICON[b.dataset.key]||'')+'</svg>';b.prepend(i)});
+$('dClear').addEventListener('click',()=>{$('distrito').value='';$('contrato').value='';update()});
+$('ambitoBtn').addEventListener('click',()=>{const s=$('distrito');s.value=s.value==='Ámbito municipal'?'':'Ámbito municipal';update();if(s.value)$('fichas').scrollIntoView({behavior:'smooth'})});
+$('lFilter').addEventListener('input',renderSideList);$('topCsv').addEventListener('click',downloadCsv);
+
+
+/* ======== Vencimientos (fecha de fin registrada en el Excel) ======== */
+let activePlazo='';
+const HOY=(()=>{const d=new Date();d.setHours(0,0,0,0);return d})();
+const PLAZOS=[['pasado','Fin registrado ya pasado','comprobar prórroga o sustitución'],['m12','Vence en menos de 1 año','en los próximos 12 meses'],['m24','Vence en 1–2 años','entre 12 y 24 meses'],['mas','Vence en más de 2 años','más de 24 meses'],['sin','Sin fecha de fin acreditada','no consta en el Excel']];
+function parseFin(s){const m=String(s||'').match(/^(\d{2})\/(\d{2})\/(\d{4})$/);return m?new Date(+m[3],+m[2]-1,+m[1]):null}
+function plazoOf(r){const f=parseFin(r.fin);if(!f)return 'sin';if(f<HOY)return 'pasado';const y1=new Date(HOY);y1.setFullYear(y1.getFullYear()+1);const y2=new Date(HOY);y2.setFullYear(y2.getFullYear()+2);return f<y1?'m12':f<y2?'m24':'mas'}
+function renderPlazos(){
+ const base=RECORDS.filter(r=>match(r,'plazo')),m=new Map();
+ base.forEach(r=>{const k=r.expediente+'|'+(r.lote||'');if(!m.has(k))m.set(k,plazoOf(r))});
+ const cnt={};PLAZOS.forEach(p=>cnt[p[0]]=0);m.forEach(v=>cnt[v]++);
+ const tot=Math.max(1,m.size),box=$('plazoBtns');box.replaceChildren();
+ PLAZOS.forEach(([k,t,s])=>{const b=node('button','pz pz-'+k+(activePlazo===k?' on':''));b.type='button';b.setAttribute('aria-pressed',activePlazo===k);
+  b.title=activePlazo===k?'Pulsa para quitar este filtro':'Pulsa para ver solo estos contratos';
+  const n=node('b','',String(cnt[k]));const tx=node('span','');tx.append(node('strong','',t),node('em','',s));
+  const bar=node('i','');bar.style.width=(100*cnt[k]/tot).toFixed(1)+'%';
+  b.append(n,tx,bar);b.disabled=!cnt[k]&&activePlazo!==k;b.addEventListener('click',()=>{activePlazo=activePlazo===k?'':k;update()});box.append(b)});
+ $('plazoTot').textContent=m.size+' contratos/lotes en la selección';
+}
+$('plazoRef').textContent=HOY.toLocaleDateString('es-ES');
+
+/* Logo oficial: copia local descargada en la publicación; si no existe, se mantiene el escudo esquemático */
+(function(){const im=$('logoImg'),srcs=['img/logo-ayuntamiento.png'];let i=0;im.onload=()=>{$('logoPill').classList.remove('hide');$('logoFallback').classList.add('hide')};im.onerror=()=>{i++;if(i<srcs.length)im.src=srcs[i]};im.src=srcs[0]})();
+/* Sello de los datos */
+(function(){const m=window.MADRID_DATA;if(!m){document.body.insertAdjacentHTML('afterbegin','<div style="background:#b42318;color:#fff;padding:12px 18px;font-weight:600">No se han podido cargar los datos (data/contratos.js). Revisa la última ejecución de «Publicar mapa» en GitHub Actions.</div>');return}
+ const t='Datos generados el '+m.generado+' desde '+m.origen;$('dataStamp').textContent=t+'.';$('dataStamp2').textContent=t})();
+$('count-exp').textContent=new Set(RECORDS.map(r=>r.expediente)).size;$('count-rel').textContent=RECORDS.length;populate();update();loadGeo();
+</script></body></html>
